@@ -71,6 +71,7 @@ extern char test_id_list[8][9];
 
 void expGetRoutineContents(void);
 void expRoutineFlagSet(int routine_flags, int state);
+void expRoutineStateSwitch(int sub_exp_id, enum sub_exp_sta_t state);
 
 
 #endif

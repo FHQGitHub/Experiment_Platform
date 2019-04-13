@@ -267,7 +267,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                 EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
                 EDIT_SetMaxLen(hItem, 100);
                 WM_SetFocus(hItem);
-		EDIT_SetText(hItem, "100.2.254.1.1");
+		EDIT_SetText(hItem, "100.2.217.1.1");
 		EDIT_GetText(hItem, sys_config.dev_id, sizeof(sys_config.dev_id));
                 WM_HideWindow(hItem);
                 

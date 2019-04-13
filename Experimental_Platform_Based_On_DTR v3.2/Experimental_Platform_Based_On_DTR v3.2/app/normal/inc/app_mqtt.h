@@ -25,7 +25,7 @@
 #define		MQTT_StaUserNameFlag				1						// User Name Flag
 #define		MQTT_StaPasswordFlag				1						// Password Flag
 #define		MQTT_KeepAlive					60
-#define		MQTT_ClientIdentifier  				"10022541"					// Client Identifier
+#define		MQTT_ClientIdentifier  				"10022542"					// Client Identifier
 #define		MQTT_WillTopic					""						// Will Topic
 #define		MQTT_WillMessage				""						// Will Message
 #define		MQTT_UserName					"hduuser"					// User Name
@@ -61,11 +61,11 @@ typedef struct {
 extern mqtt_rcv_info_t mqtt_rcv_info;
 
 u8 GetDataFixedHead(unsigned char MesType, unsigned char DupFlag, unsigned char QosLevel, unsigned char Retain);
-u8 GetDataPUBLISH(unsigned char *buff, unsigned char dup, unsigned char qos, unsigned char retain, const char *topic , const char *msg); //获取发布消息的数据包
-u8 GetDataSUBSCRIBE(unsigned char *buff, unsigned char *dat, unsigned int Num, unsigned char RequestedQoS); //订阅主题的数据包 Num:主题序号 RequestedQoS:服务质量要求0,1或2
-u8 GetDataConnet(unsigned char *buff);//获取连接的数据包正确连接的返回20 02 00 00
-void GetDataDisConnet(unsigned char *buff);//获取断开连接的数据包
-void GetDataPINGREQ(unsigned char *buff);//心跳请求的数据包成功返回d0 00
+u8 GetDataPUBLISH(unsigned char *buff, unsigned char dup, unsigned char qos, unsigned char retain, const char *topic , const char *msg); 
+u8 GetDataSUBSCRIBE(unsigned char *buff, unsigned char *dat, unsigned int Num, unsigned char RequestedQoS); 
+u8 GetDataConnet(unsigned char *buff);
+void GetDataDisConnet(unsigned char *buff);
+void GetDataPINGREQ(unsigned char *buff);
 
 mqttStatus usr_c322_wifista_mqtt_init(void);
 mqttStatus usr_c322_wifista_mqtt_connect(void);

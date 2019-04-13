@@ -333,8 +333,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                 }
                                 else if(present_bar_status == ACTION_EXP_DETAIL) {
                                         if(routine.main_exp.sub_exp[present_list_status - 1].status == exp_waiting) 
-                                                routine.main_exp.sub_exp[present_list_status - 1].status = exp_lasting;
-                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+						expRoutineStateSwitch(present_list_status - 1, exp_lasting);
+//                                                routine.main_exp.sub_exp[present_list_status - 1].status = exp_lasting;
+//                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
                                 }
                                 else if(present_bar_status == ACTION_EXP_SCORE) {
                                         if(routine.flags.flagTeacherLogin == flag_reset) {
@@ -342,8 +343,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                                 xTaskNotifyGive(QRScannerTask_Handler);	
                                         }
                                         else if(routine.main_exp.sub_exp[present_list_status - 1].status == exp_submitted || routine.main_exp.sub_exp[present_list_status - 1].status == exp_grading) {
-                                                routine.main_exp.sub_exp[present_list_status - 1].status = exp_grading;
-                                                menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                                expRoutineStateSwitch(present_list_status - 1, exp_grading);
+//						routine.main_exp.sub_exp[present_list_status - 1].status = exp_grading;
+//                                                menu_reconstruct_list_content(present_bar_status, present_list_status);
                                                 WM_ShowWindow(hKeyboard);
                                         }
                                 }

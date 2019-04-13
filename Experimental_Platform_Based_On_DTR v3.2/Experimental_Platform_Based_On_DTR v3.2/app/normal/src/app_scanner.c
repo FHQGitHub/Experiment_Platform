@@ -32,17 +32,13 @@ u8 QR_On(void)
 		}
 	}
 	if(waittime == 0) {
-		res = 2;         //接收超时
+		res = 2;         
 	}
 	return res;
 }
 
 
-//二维码读取函数
-//rxDat:接收数组；check:检查响应
-//返回值：1，   响应匹配；
-//		  0，   响应不匹配或读取失败
-//		  0xff，等待扫描超时
+
 u8 QR_RX_Data(u8 rxDat[], const u8 * check)
 {
 	u8 res = 0;

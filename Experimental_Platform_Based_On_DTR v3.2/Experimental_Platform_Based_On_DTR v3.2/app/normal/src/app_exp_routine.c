@@ -61,4 +61,10 @@ void expRoutineFlagSet(int routine_flags, int state)
         xTaskNotify(MenuTask_Handler, (uint32_t)(&ui_effect), eNoAction);
         
 }
+
+void expRoutineStateSwitch(int sub_exp_id, enum sub_exp_sta_t state)
+{
+	routine.main_exp.sub_exp[sub_exp_id - 1].status = state;
+	xTaskNotify(MenuTask_Handler, (uint32_t)(&ui_effect), eNoAction);
+}
         
