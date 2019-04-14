@@ -149,96 +149,223 @@ void menu_list_element_set_data(int bar_index, int list_index, WM_HWIN hWin, voi
 void menu_list_element_roleplay()
 {
 	int i;
-	if(flag_reset == routine.flags.flagExpStart) {
-		for(i = 0; i < 3; i++) {
-			menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&"请等待教师开始实验");
-			menu_list_element_set_visible(2, i + 1, hExpContent1, 0);
-			menu_list_element_set_visible(2, i + 1, hExpContent2, 0);
-			menu_list_element_set_visible(2, i + 1, hExpContent3, 0);
-			menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
-			menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
-		}
-	} else {
-		if(flag_reset == routine.flags.flagStudentLogin) {
+	
+	if(ACTION_EXP_DETAIL == present_bar_status) {
+		if(flag_reset == routine.flags.flagExpStart) {
 			for(i = 0; i < 3; i++) {
-				menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&"请先签到");
+				menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)"请等待教师开始实验");
 				menu_list_element_set_visible(2, i + 1, hExpContent1, 0);
 				menu_list_element_set_visible(2, i + 1, hExpContent2, 0);
 				menu_list_element_set_visible(2, i + 1, hExpContent3, 0);
-				menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
-				menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
 			}
 		} else {
-			for(i = 0; i < 3; i++) {
-				switch(routine.main_exp.sub_exp[i].status) {
-				case exp_waiting :
-					menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&routine.main_exp.sub_exp[i].subExpName);
-					menu_list_element_set_data(2, i + 1, hExpContent1, (void *)&routine.main_exp.sub_exp[i].subExpDetail);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage1, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton1, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage2, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton2, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage3, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton3, 0);
-					break;
-
-				case exp_lasting :
+			if(flag_reset == routine.flags.flagStudentLogin) {
+				for(i = 0; i < 3; i++) {
+					menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)"请先签到");
+					menu_list_element_set_visible(2, i + 1, hExpContent1, 0);
+					menu_list_element_set_visible(2, i + 1, hExpContent2, 0);
+					menu_list_element_set_visible(2, i + 1, hExpContent3, 0);
 					menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
 					menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
-					break;
+				}
+			} else {
+				for(i = 0; i < 3; i++) {
+					switch(routine.main_exp.sub_exp[i].status) {
+					case exp_waiting :
+						menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&routine.main_exp.sub_exp[i].subExpName);
+						menu_list_element_set_data(2, i + 1, hExpContent1, (void *)&routine.main_exp.sub_exp[i].subExpDetail);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage1, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton1, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton3, 0);
+						break;
 
-				case exp_submitted :
-					menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&"请等待教师评分");
-					menu_list_element_set_data(2, i + 1, hFunctionImage2, (void *)&"重新提交");
-					menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
-					break;
+					case exp_lasting :
+						menu_list_element_set_data(2, i + 1, hFunctionButton2, (void *)"提交实验");
+						menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
+						break;
 
-				case exp_grading :
-					menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&"请等待教师评分");
-					menu_list_element_set_data(2, i + 1, hFunctionImage2, (void *)&"重新提交");
-					menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
-					break;
+					case exp_submitted :
+						menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)"请等待教师评分");
+						menu_list_element_set_data(2, i + 1, hFunctionButton2, (void *)"重新提交");
+						menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
+						break;
 
-				case exp_finished :
-					menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)&"实验已完成");
-					menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage2, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton2, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionImage3, 0);
-					menu_list_element_set_visible(2, i + 1, hFunctionButton3, 0);
-					break;
+					case exp_grading :
+						
+						menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)"请等待教师评分");
+						menu_list_element_set_data(2, i + 1, hFunctionButton2, (void *)"重新提交");
+						menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton2, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage3, 1);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton3, 1);
+						break;
 
-				default :
+					case exp_finished :
+						menu_list_element_set_data(2, i + 1, hExpSubTitle, (void *)"实验已完成");
+						menu_list_element_set_visible(2, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(2, i + 1, hFunctionButton3, 0);
+						break;
 
-					break;
+					default :
+
+						break;
+					}
 				}
 			}
 		}
 	}
+	else if(ACTION_EXP_SCORE == present_bar_status) {
+		
+		if(flag_reset == routine.flags.flagTeacherLogin) {
+			for(i = 0; i < 3; i++) {
+				menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)&"请教师验证身份");
+				menu_list_element_set_visible(3, i + 1, hExpContent1, 0);
+				menu_list_element_set_visible(3, i + 1, hExpContent2, 0);
+				menu_list_element_set_visible(3, i + 1, hExpContent3, 0);
+				menu_list_element_set_data(3, i + 1, hFunctionButton1, (void *)"教师入口");
+				menu_list_element_set_visible(3, i + 1, hFunctionImage1, 1);
+				menu_list_element_set_visible(3, i + 1, hFunctionButton1, 1);
+				menu_list_element_set_visible(3, i + 1, hScoreText, 0);
+				menu_list_element_set_visible(3, i + 1, hScoreEdit, 0);
+			}
+		} 
+		else {
+			if(flag_reset == routine.flags.flagExpStart) {
+				for(i = 0; i < 3; i++) {
+					menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)&"请教师开始实验");
+					menu_list_element_set_visible(3, i + 1, hExpContent1, 0);
+					menu_list_element_set_visible(3, i + 1, hExpContent2, 0);
+					menu_list_element_set_visible(3, i + 1, hExpContent3, 0);
+					menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+					menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+				}
+			} else {
+				for(i = 0; i < 3; i++) {
+					switch(routine.main_exp.sub_exp[i].status) {
+					case exp_waiting :
+						menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)"请等待学生开始实验");
+						menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton3, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreText, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreEdit, 0);
+						break;
 
-	if(flag_reset == routine.flags.flagTeacherLogin) {
-		menu_list_element_set_data(3, 1, hExpSubTitle, (void *)&"请教师验证身份");
-		menu_list_element_set_visible(3, 1, hExpContent1, 0);
-		menu_list_element_set_visible(3, 1, hExpContent2, 0);
-		menu_list_element_set_visible(3, 1, hExpContent3, 0);
-	} else;
+					case exp_lasting :
+						menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)"请等待学生提交实验");
+						menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton3, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreText, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreEdit, 0);
+						break;
 
+					case exp_submitted :
+						menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)"实验已提交,请教师评分");
+						menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton3, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreText, 1);
+						menu_list_element_set_visible(3, i + 1, hScoreEdit, 1);
+						break;
 
+					case exp_grading :
+						menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)"实验已提交,请教师评分");
+						menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton3, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreText, 1);
+						menu_list_element_set_visible(3, i + 1, hScoreEdit, 1);
+						break;
+
+					case exp_finished :
+						menu_list_element_set_data(3, i + 1, hExpSubTitle, (void *)"实验已评分");
+						menu_list_element_set_visible(3, i + 1, hFunctionImage1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton1, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton2, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionImage3, 0);
+						menu_list_element_set_visible(3, i + 1, hFunctionButton3, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreText, 0);
+						menu_list_element_set_visible(3, i + 1, hScoreEdit, 0);
+						break;
+
+					default :
+
+						break;
+					}
+				
+				}
+			}
+			
+		}
+	}
+	else if(ACTION_SETTING == present_bar_status) {
+		
+		if(2 == present_list_status) {
+			if(flag_reset == routine.flags.flagAdminLogin) {
+				menu_list_element_set_data(4, 2, hFunctionButton1, (void *)"管理员入口");
+				menu_list_element_set_visible(4, 2, hAdminImage, 1);
+				menu_list_element_set_visible(4, 2, hAdminButton, 1);
+				menu_list_element_set_visible(4, 2, hPreferenceText0, 0);
+				menu_list_element_set_visible(4, 2, hPreferenceText1, 0);
+				menu_list_element_set_visible(4, 2, hPreferenceTextMux, 0);
+				menu_list_element_set_visible(4, 2, hPreferenceTextDevID, 0);
+				menu_list_element_set_visible(4, 2, hVoiceButton, 0);
+				menu_list_element_set_visible(4, 2, hVolumeSlider, 0);
+				menu_list_element_set_visible(4, 2, hMuxButton, 0);
+				menu_list_element_set_visible(4, 2, hDevIdEdit, 0);
+			}
+			else {
+				menu_list_element_set_visible(4, 2, hAdminImage, 0);
+				menu_list_element_set_visible(4, 2, hAdminButton, 0);
+				menu_list_element_set_visible(4, 2, hPreferenceText0, 1);
+				menu_list_element_set_visible(4, 2, hPreferenceText1, 1);
+				menu_list_element_set_visible(4, 2, hPreferenceTextMux, 1);
+				menu_list_element_set_visible(4, 2, hPreferenceTextDevID, 1);
+				menu_list_element_set_visible(4, 2, hVoiceButton, 1);
+				menu_list_element_set_visible(4, 2, hVolumeSlider, 1);
+				menu_list_element_set_visible(4, 2, hMuxButton, 1);
+				menu_list_element_set_visible(4, 2, hDevIdEdit, 1);
+			}
+		}
+		else {
+			menu_list_element_set_visible(4, present_list_status, hAdminImage, 0);
+			menu_list_element_set_visible(4, present_list_status, hAdminButton, 0);
+		}
+	}
+		
 }
 
 
@@ -302,16 +429,19 @@ void menu_reconstruct_bar_content(int bar_index)
 
 }
 
-void menu_reconstruct_list_content(int bar_index, int list_index)
+void menu_reconstruct_list_content(int bar_index, int list_index, int effect)
 {
 
 	WM_HideWindow(hKeyboard);
 	WM_HideWindow(hFullKeyboard);
 	WM_HideWindow(hConnectList);
-
-	display_board_slide(menu.bar[ex_bar_status - 1].subList[ex_list_status - 1].hContentWin, 800);
-	menu_list_elements_switch(element_list_of(ex_bar_status, ex_list_status), element_list_of(bar_index, list_index));
-	display_board_slide(menu.bar[bar_index - 1].subList[list_index - 1].hContentWin, 400);
+	if(effect) {
+		display_board_slide(menu.bar[ex_bar_status - 1].subList[ex_list_status - 1].hContentWin, 800);
+		menu_list_elements_switch(element_list_of(ex_bar_status, ex_list_status), element_list_of(bar_index, list_index));
+		display_board_slide(menu.bar[bar_index - 1].subList[list_index - 1].hContentWin, 400);
+	}
+	else
+		menu_list_elements_switch(element_list_of(ex_bar_status, ex_list_status), element_list_of(bar_index, list_index));
 }
 
 void menu_init()
@@ -320,83 +450,83 @@ void menu_init()
 	WM_ShowWindow(hSettingWindow);
 
 	menu_list_element_attach(1, 1, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(1, 1, hExpSubTitle, element_text, (void *)&"请签到", element_visible);
+	menu_list_element_attach(1, 1, hExpSubTitle, element_text, (void *)"请签到", element_visible);
 	menu_list_element_attach(1, 1, hFunctionImage1, element_image, (void *)&bmhdu_logo, element_visible);
-	menu_list_element_attach(1, 1, hFunctionButton1, element_button, (void *)&"签到入口", element_visible);
+	menu_list_element_attach(1, 1, hFunctionButton1, element_button, (void *)"签到入口", element_visible);
 
 	menu_list_element_attach(1, 2, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(1, 2, hExpSubTitle, element_text, (void *)&"请签退", element_visible);
+	menu_list_element_attach(1, 2, hExpSubTitle, element_text, (void *)"请签退", element_visible);
 	menu_list_element_attach(1, 2, hFunctionImage1, element_image, (void *)&bmhdu_logo, element_visible);
-	menu_list_element_attach(1, 2, hFunctionButton1, element_button, (void *)&"签退入口", element_visible);
+	menu_list_element_attach(1, 2, hFunctionButton1, element_button, (void *)"签退入口", element_visible);
 
 	menu_list_element_attach(1, 3, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(1, 3, hExpSubTitle, element_text, (void *)&"签到情况", element_visible);
+	menu_list_element_attach(1, 3, hExpSubTitle, element_text, (void *)"签到情况", element_visible);
 	menu_list_element_attach(1, 3, hSignList, element_win, NULL, element_visible);
 
 	menu_list_element_attach(2, 1, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
 	menu_list_element_attach(2, 1, hExpSubTitle, element_text, (void *)"请等待教师开始实验", element_visible);
 	menu_list_element_attach(2, 1, hExpContent1, element_text, (void *)&routine.main_exp.sub_exp[0].subExpDetail, element_invisible);
-	menu_list_element_attach(2, 1, hExpContent2, element_text, (void *)&"实验原理", element_invisible);
-	menu_list_element_attach(2, 1, hExpContent3, element_text, (void *)&"实验原理", element_invisible);
+	menu_list_element_attach(2, 1, hExpContent2, element_text, (void *)"实验原理", element_invisible);
+	menu_list_element_attach(2, 1, hExpContent3, element_text, (void *)"实验原理", element_invisible);
 	menu_list_element_attach(2, 1, hFunctionImage1, element_image, (void *)&bmhdu_logo, element_invisible);
 	menu_list_element_attach(2, 1, hFunctionImage2, element_image, NULL, element_invisible);
 	menu_list_element_attach(2, 1, hFunctionImage3, element_image, NULL, element_invisible);
-	menu_list_element_attach(2, 1, hFunctionButton1, element_button, (void *)&"开始实验", element_invisible);
-	menu_list_element_attach(2, 1, hFunctionButton2, element_button, (void *)&"提交实验", element_invisible);
-	menu_list_element_attach(2, 1, hFunctionButton3, element_button, (void *)&"问题解答", element_invisible);
+	menu_list_element_attach(2, 1, hFunctionButton1, element_button, (void *)"开始实验", element_invisible);
+	menu_list_element_attach(2, 1, hFunctionButton2, element_button, (void *)"提交实验", element_invisible);
+	menu_list_element_attach(2, 1, hFunctionButton3, element_button, (void *)"问题解答", element_invisible);
 	menu_list_element_attach(2, 1, hQueueText, element_text, NULL, element_invisible);
 
 	menu_list_element_attach(2, 2, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
 	menu_list_element_attach(2, 2, hExpSubTitle, element_text, (void *)"请等待教师开始实验", element_visible);
 	menu_list_element_attach(2, 2, hExpContent1, element_text, (void *)&routine.main_exp.sub_exp[1].subExpDetail, element_invisible);
-	menu_list_element_attach(2, 2, hExpContent2, element_text, (void *)&"实验原理", element_invisible);
-	menu_list_element_attach(2, 2, hExpContent3, element_text, (void *)&"实验原理", element_invisible);
+	menu_list_element_attach(2, 2, hExpContent2, element_text, (void *)"实验原理", element_invisible);
+	menu_list_element_attach(2, 2, hExpContent3, element_text, (void *)"实验原理", element_invisible);
 	menu_list_element_attach(2, 2, hFunctionImage1, element_image, NULL, element_invisible);
 	menu_list_element_attach(2, 2, hFunctionImage2, element_image, NULL, element_invisible);
 	menu_list_element_attach(2, 2, hFunctionImage3, element_image, NULL, element_invisible);
-	menu_list_element_attach(2, 2, hFunctionButton1, element_button, (void *)&"开始实验", element_invisible);
-	menu_list_element_attach(2, 2, hFunctionButton2, element_button, (void *)&"提交实验", element_invisible);
-	menu_list_element_attach(2, 2, hFunctionButton3, element_button, (void *)&"问题解答", element_invisible);
+	menu_list_element_attach(2, 2, hFunctionButton1, element_button, (void *)"开始实验", element_invisible);
+	menu_list_element_attach(2, 2, hFunctionButton2, element_button, (void *)"提交实验", element_invisible);
+	menu_list_element_attach(2, 2, hFunctionButton3, element_button, (void *)"问题解答", element_invisible);
 	menu_list_element_attach(2, 2, hQueueText, element_text, NULL, element_invisible);
 
 	menu_list_element_attach(2, 3, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
 	menu_list_element_attach(2, 3, hExpSubTitle, element_text, (void *)"请等待教师开始实验", element_visible);
 	menu_list_element_attach(2, 3, hExpContent1, element_text, (void *)&routine.main_exp.sub_exp[2].subExpDetail, element_invisible);
-	menu_list_element_attach(2, 3, hExpContent2, element_text, (void *)&"实验原理", element_invisible);
-	menu_list_element_attach(2, 3, hExpContent3, element_text, (void *)&"实验原理", element_invisible);
+	menu_list_element_attach(2, 3, hExpContent2, element_text, (void *)"实验原理", element_invisible);
+	menu_list_element_attach(2, 3, hExpContent3, element_text, (void *)"实验原理", element_invisible);
 	menu_list_element_attach(2, 3, hFunctionImage1, element_image, NULL, element_invisible);
 	menu_list_element_attach(2, 3, hFunctionImage2, element_image, NULL, element_invisible);
 	menu_list_element_attach(2, 3, hFunctionImage3, element_image, NULL, element_invisible);
-	menu_list_element_attach(2, 3, hFunctionButton1, element_button, (void *)&"开始实验", element_invisible);
-	menu_list_element_attach(2, 3, hFunctionButton2, element_button, (void *)&"提交实验", element_invisible);
-	menu_list_element_attach(2, 3, hFunctionButton3, element_button, (void *)&"问题解答", element_invisible);
+	menu_list_element_attach(2, 3, hFunctionButton1, element_button, (void *)"开始实验", element_invisible);
+	menu_list_element_attach(2, 3, hFunctionButton2, element_button, (void *)"提交实验", element_invisible);
+	menu_list_element_attach(2, 3, hFunctionButton3, element_button, (void *)"问题解答", element_invisible);
 	menu_list_element_attach(2, 3, hQueueText, element_text, NULL, element_invisible);
 
 	menu_list_element_attach(3, 1, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(3, 1, hExpSubTitle, element_text, (void *)&"请教师验证身份", element_visible);
+	menu_list_element_attach(3, 1, hExpSubTitle, element_text, (void *)"请教师验证身份", element_visible);
 	menu_list_element_attach(3, 1, hFunctionImage1, element_image, NULL, element_visible);
-	menu_list_element_attach(3, 1, hFunctionButton1, element_button, (void *)&"教师入口", element_visible);
-	menu_list_element_attach(3, 1, hLogoutButton, element_button, (void *)&"退出", element_invisible);
+	menu_list_element_attach(3, 1, hFunctionButton1, element_button, (void *)"教师入口", element_visible);
+	menu_list_element_attach(3, 1, hLogoutButton, element_button, (void *)"退出", element_invisible);
 	menu_list_element_attach(3, 1, hScoreEdit, element_edit, NULL, element_invisible);
 	menu_list_element_attach(3, 1, hScoreText, element_text, NULL, element_invisible);
 	menu_list_element_attach(3, 1, hKeyboard, element_win, NULL, element_invisible);
 
 	menu_list_element_attach(3, 2, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(3, 2, hExpSubTitle, element_text, (void *)&"请教师验证身份", element_visible);
+	menu_list_element_attach(3, 2, hExpSubTitle, element_text, (void *)"请教师验证身份", element_visible);
 	menu_list_element_attach(3, 2, hFunctionImage1, element_image, NULL, element_visible);
-	menu_list_element_attach(3, 2, hFunctionButton1, element_button, (void *)&"教师入口", element_visible);
-	menu_list_element_attach(3, 2, hLogoutButton, element_button, (void *)&"退出", element_invisible);
+	menu_list_element_attach(3, 2, hFunctionButton1, element_button, (void *)"教师入口", element_visible);
+	menu_list_element_attach(3, 2, hLogoutButton, element_button, (void *)"退出", element_invisible);
 	menu_list_element_attach(3, 2, hScoreEdit, element_edit, NULL, element_invisible);
 	menu_list_element_attach(3, 2, hScoreText, element_text, NULL, element_invisible);
 	menu_list_element_attach(3, 2, hKeyboard, element_win, NULL, element_invisible);
 
 	menu_list_element_attach(3, 3, hExpTitle, element_text, (void *)&routine.main_exp.mainExpName, element_visible);
-	menu_list_element_attach(3, 3, hExpSubTitle, element_text, (void *)&"请教师验证身份", element_visible);
+	menu_list_element_attach(3, 3, hExpSubTitle, element_text, (void *)"请教师验证身份", element_visible);
 	menu_list_element_attach(3, 3, hFunctionImage1, element_image, NULL, element_visible);
-	menu_list_element_attach(3, 3, hFunctionButton1, element_button, (void *)&"教师入口", element_visible);
-	menu_list_element_attach(3, 3, hLogoutButton, element_button, (void *)&"退出", element_invisible);
+	menu_list_element_attach(3, 3, hFunctionButton1, element_button, (void *)"教师入口", element_visible);
+	menu_list_element_attach(3, 3, hLogoutButton, element_button, (void *)"退出", element_invisible);
 	menu_list_element_attach(3, 3, hScoreEdit, element_edit, NULL, element_invisible);
-	menu_list_element_attach(3, 3, hScoreText, element_text, NULL, element_invisible);
+	menu_list_element_attach(3, 3, hScoreText, element_text, (void *)"实验评分", element_invisible);
 	menu_list_element_attach(3, 3, hKeyboard, element_win, NULL, element_invisible);
 
 	menu_list_element_attach(4, 1, hConnectList, element_win, NULL, element_invisible);
@@ -406,6 +536,8 @@ void menu_init()
 	menu_list_element_attach(4, 1, hBackButton, element_button, NULL, element_invisible);
 	menu_list_element_attach(4, 1, hScanButton, element_button, NULL, element_invisible);
 
+	menu_list_element_attach(4, 2, hAdminImage, element_image, NULL, element_visible);
+	menu_list_element_attach(4, 2, hAdminButton, element_button, (void *)"管理员入口 ", element_visible);
 	menu_list_element_attach(4, 2, hPreferenceText0, element_text, NULL, element_visible);
 	menu_list_element_attach(4, 2, hPreferenceText1, element_text, NULL, element_visible);
 	menu_list_element_attach(4, 2, hPreferenceTextMux, element_text, NULL, element_visible);
@@ -415,16 +547,16 @@ void menu_init()
 	menu_list_element_attach(4, 2, hMuxButton, element_button, NULL, element_visible);
 	menu_list_element_attach(4, 2, hDevIdEdit, element_button, NULL, element_visible);
 
-	menu_list_element_attach(4, 3, hInfoText0, element_text, (void *)&"型号:             Epoch 1 Compact",      element_visible);
-	menu_list_element_attach(4, 3, hInfoText1, element_text, (void *)&"版本号:         IIEES v1.0 2019.1",      element_visible);
-	menu_list_element_attach(4, 3, hInfoText2, element_text, (void *)&"处理器:         STM32F429ZGT6",          element_visible);
-	menu_list_element_attach(4, 3, hInfoText3, element_text, (void *)&"屏幕 :            4.3' TFT 800 * 480",   element_visible);
-	menu_list_element_attach(4, 3, hInfoText4, element_text, (void *)&"系统版本:      FreeRTOS Kernel V10.0.1", element_visible);
-	menu_list_element_attach(4, 3, hInfoText5, element_text, (void *)&"GUI版本:       STemWin V5.32",           element_visible);
-	menu_list_element_attach(4, 3, hInfoText6, element_text, (void *)&"驱动框架:      DTR v1.0",                element_visible);
-	menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)&"设备ID:          1551",                  element_visible);
-	menu_list_element_attach(4, 3, hInfoText8, element_text, (void *)&"开发团队:      Hdu-Microchip-Lab",       element_visible);
-	menu_list_element_attach(4, 3, hInfoText9, element_text, (void *)&"(c) 2018 - 2022 Hdu-Microchip-Lab",      element_visible);
+	menu_list_element_attach(4, 3, hInfoText0, element_text, (void *)"型号:             Epoch 1 Standard",      element_visible);
+	menu_list_element_attach(4, 3, hInfoText1, element_text, (void *)"版本号:         IIEES v1.0 2019.1",      element_visible);
+	menu_list_element_attach(4, 3, hInfoText2, element_text, (void *)"处理器:         STM32F429ZGT6",          element_visible);
+	menu_list_element_attach(4, 3, hInfoText3, element_text, (void *)"屏幕 :            4.3' TFT 800 * 480",   element_visible);
+	menu_list_element_attach(4, 3, hInfoText4, element_text, (void *)"系统版本:      FreeRTOS Kernel V10.0.1", element_visible);
+	menu_list_element_attach(4, 3, hInfoText5, element_text, (void *)"GUI版本:       STemWin V5.32",           element_visible);
+	menu_list_element_attach(4, 3, hInfoText6, element_text, (void *)"驱动框架:      DTR v1.0",                element_visible);
+	menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)"设备ID:          1551",                  element_visible);
+	menu_list_element_attach(4, 3, hInfoText8, element_text, (void *)"开发团队:      Hdu-Microchip-Lab",       element_visible);
+	menu_list_element_attach(4, 3, hInfoText9, element_text, (void *)"(c) 2018 - 2022 Hdu-Microchip-Lab",      element_visible);
 
 
 }

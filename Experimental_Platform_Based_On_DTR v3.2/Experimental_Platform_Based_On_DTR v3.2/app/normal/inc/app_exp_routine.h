@@ -15,7 +15,8 @@
 #define FLAG_EXP_START                          1
 #define FLAG_STUDENT_LOGIN                      2
 #define FLAG_TEACHER_LOGIN                      3
-#define FLAG_QUESTION_SET                       4
+#define FLAG_ADMIN_LOGIN                      	4
+#define FLAG_QUESTION_SET                       5
 
 enum flag_t {
         flag_reset,
@@ -34,6 +35,7 @@ typedef struct {
         enum flag_t flagExpStart;
         enum flag_t flagStudentLogin;
         enum flag_t flagTeacherLogin;
+	enum flag_t flagAdminLogin;
         enum flag_t flagQuestionSet;
 }exp_flag_t;
 

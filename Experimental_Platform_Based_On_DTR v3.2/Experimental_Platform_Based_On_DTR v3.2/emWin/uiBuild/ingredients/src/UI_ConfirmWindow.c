@@ -72,8 +72,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 					notify_show("16041538", "成功签退");
                                 }
                                 else if(present_bar_status == ACTION_EXP_DETAIL) {
-                                        routine.main_exp.sub_exp[present_list_status - 1].status = exp_submitted;
-                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                       
+					expRoutineStateSwitch(present_list_status - 1, exp_submitted);
+                                        //menu_reconstruct_list_content(present_bar_status, present_list_status);
                                 }
                                 else if(present_bar_status == ACTION_EXP_SCORE) {
                                         ui_effect.hWin = hLogoutImage;
@@ -96,9 +97,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                         bar_highlight_slide(ex_bar_status, present_bar_status);
                                         ex_bar_status = present_bar_status;
                                         menu_reconstruct_bar_content(present_bar_status);
-                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                        menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                                 }
-								else;
+				else;
                         break;
                         
                         }

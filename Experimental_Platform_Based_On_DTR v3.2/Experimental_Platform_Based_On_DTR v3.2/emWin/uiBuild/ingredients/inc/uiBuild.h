@@ -105,6 +105,8 @@ extern WM_HWIN hRfidListButton;
 extern WM_HWIN hBackImage;
 extern WM_HWIN hBackButton;
 extern WM_HWIN hScanButton;
+extern WM_HWIN hAdminImage;
+extern WM_HWIN hAdminButton;
 
 extern WM_HWIN hNotifyWindow;
 extern WM_HWIN hNotifyText1;

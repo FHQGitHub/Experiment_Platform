@@ -65,6 +65,38 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
         { LISTVIEW_CreateIndirect, "Listview", ID_LISTVIEW_SIGN, 66, 138, 260, 227, 0, 0x0, 0 },
 };
 
+void pushButtonInitDialog(void)
+{
+	BUTTON_SetFont(hFunctionButton1,  &YaHei_36_Font);
+	BUTTON_SetTextColor(hFunctionButton1, BUTTON_CI_DISABLED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton1, BUTTON_CI_PRESSED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton1, BUTTON_CI_UNPRESSED, 0x009B5C0A);
+	BUTTON_SetText(hFunctionButton1, "开始实验");
+	WM_SetCallback(hFunctionButton1, _cbPushButtonText);
+
+	BUTTON_SetFont(hFunctionButton2,  &YaHei_36_Font);
+	BUTTON_SetTextColor(hFunctionButton2, BUTTON_CI_DISABLED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton2, BUTTON_CI_PRESSED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton2, BUTTON_CI_UNPRESSED, 0x009B5C0A);
+	BUTTON_SetText(hFunctionButton2, "提交实验");
+	WM_SetCallback(hFunctionButton2, _cbPushButtonText);
+
+	BUTTON_SetFont(hFunctionButton3,  &YaHei_36_Font);
+	BUTTON_SetTextColor(hFunctionButton3, BUTTON_CI_DISABLED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton3, BUTTON_CI_PRESSED, 0x009B5C0A);
+	BUTTON_SetTextColor(hFunctionButton3, BUTTON_CI_UNPRESSED, 0x009B5C0A);
+	BUTTON_SetText(hFunctionButton3, "问题解答");
+	WM_SetCallback(hFunctionButton3, _cbPushButtonText);
+
+	BUTTON_SetFont(hLogoutButton,  &YaHei_24_Font);
+	BUTTON_SetTextColor(hLogoutButton, BUTTON_CI_DISABLED, GUI_BLACK);
+	BUTTON_SetTextColor(hLogoutButton, BUTTON_CI_PRESSED, GUI_BLACK);
+	BUTTON_SetTextColor(hLogoutButton, BUTTON_CI_UNPRESSED, GUI_BLACK);
+	BUTTON_SetText(hLogoutButton, "教师签退");
+	WM_SetCallback(hLogoutButton, _cbPushButtonText);
+
+}
+
 static void _cbDialog(WM_MESSAGE * pMsg)
 {
         int NCode;
@@ -205,7 +237,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                 hLogoutButton = hItem; 
                 WM_HideWindow(hItem);
 
-                pushButtonTextInitDialog();
+                pushButtonInitDialog();
         break;
 		
         case WM_BUTTON_BEGIN_CB:
@@ -248,7 +280,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                         case http_teacher_login_check :
                                 if(routine.flags.flagTeacherLogin == flag_reset) {
                                         routine.flags.flagTeacherLogin = flag_set;
-                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                        menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                                 }
                                 
                         break;
@@ -287,7 +319,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                         else
                                 IMAGE_SetBitmap(hExpStatusImage3, &bmfinished);
 			notify_show("操作成功", "");
-                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+                        expRoutineStateSwitch(present_list_status - 1, exp_finished);
                 }
                 else if(notify->http_notify.status == HTTP_ERR)
 			notify_show("网络连接错误", "操作失败");
@@ -339,8 +371,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                 }
                                 else if(present_bar_status == ACTION_EXP_SCORE) {
                                         if(routine.flags.flagTeacherLogin == flag_reset) {
-                                                voiceDispString(voiceShowQrCode);
-                                                xTaskNotifyGive(QRScannerTask_Handler);	
+						expRoutineFlagSet(FLAG_TEACHER_LOGIN, 1);
+//                                                voiceDispString(voiceShowQrCode);
+//                                                xTaskNotifyGive(QRScannerTask_Handler);	
                                         }
                                         else if(routine.main_exp.sub_exp[present_list_status - 1].status == exp_submitted || routine.main_exp.sub_exp[present_list_status - 1].status == exp_grading) {
                                                 expRoutineStateSwitch(present_list_status - 1, exp_grading);
@@ -391,7 +424,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                              eSetValueWithOverwrite
                                 );
                                 routine.flags.flagQuestionSet = flag_set;
-                                menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                         break;
                         }
 		break;  
@@ -432,7 +465,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                         bar_highlight_slide(ex_bar_status, present_bar_status);
                                         ex_bar_status = present_bar_status;
                                         menu_reconstruct_bar_content(present_bar_status);
-                                        menu_reconstruct_list_content(present_bar_status, present_list_status);
+                                        menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                                 }    
                         break;
                         }

@@ -7,13 +7,8 @@
 #define PUSHBUTTON_BKCOLOR_UNSEL GUI_BLACK
 #define PUSHBUTTON_BKCOLOR_SEL (0X007C7782)
 
-void pushButtonTextInitDialog(void);
-void connectButtonTextInitDialog(void);
-
-//extern void backButtonMessageProcess(int NCode);
-//extern void homepageButtonMessageProcess(int NCode);
-//extern void menuMessageProcess(int NCode);
-
+void _cbPushButtonText(WM_MESSAGE *pMsg);
+void _cbPushButtonBitmap(WM_MESSAGE *pMsg);
 
 #endif
 

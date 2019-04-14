@@ -202,7 +202,7 @@ void timer_task(void *pvParameters)
 void touch_task(void *pvParameters)
 {
 	menu_reconstruct_bar_content(1);
-	menu_reconstruct_list_content(1, 1);
+	menu_reconstruct_list_content(1, 1, 1);
 	while(1) {
 		ui_action();
 		GUI_Delay(20);
@@ -652,13 +652,17 @@ void menu_task(void *pvParameters)
 {
         BaseType_t xResult;
         uint32_t ulValue;
-        
+        routine.flags.flagExpStart = flag_set;
+	routine.flags.flagStudentLogin = flag_set;
 	while(1) {
                 xResult = xTaskNotifyWait((uint32_t)0x00, (uint32_t)0xffffffffUL, &ulValue, (TickType_t)0);
+		menu_list_element_roleplay();
                 if(xResult == pdPASS) {
                         menu_list_element_roleplay();
-                        if(present_bar_status == ACTION_EXP_DETAIL || present_bar_status == ACTION_EXP_SCORE)
-                                menu_reconstruct_list_content(present_bar_status, present_list_status);
+			if(ACTION_SETTING == present_bar_status)
+				menu_reconstruct_list_content(present_bar_status, present_list_status, 0);
+			else
+				menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                 }
 		vTaskDelay(10);
 	}

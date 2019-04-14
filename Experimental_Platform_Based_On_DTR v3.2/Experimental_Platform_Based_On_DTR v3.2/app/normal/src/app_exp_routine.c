@@ -50,6 +50,14 @@ void expRoutineFlagSet(int routine_flags, int state)
                 else
                         routine.flags.flagTeacherLogin = flag_reset;
         break;
+		
+	case FLAG_ADMIN_LOGIN :
+                if(1 == state)
+                        routine.flags.flagAdminLogin = flag_set;
+                else
+                        routine.flags.flagAdminLogin = flag_reset;
+        break;
+		
         
         case FLAG_QUESTION_SET :
                 if(1 == state)
@@ -64,7 +72,7 @@ void expRoutineFlagSet(int routine_flags, int state)
 
 void expRoutineStateSwitch(int sub_exp_id, enum sub_exp_sta_t state)
 {
-	routine.main_exp.sub_exp[sub_exp_id - 1].status = state;
+	routine.main_exp.sub_exp[sub_exp_id].status = state;
 	xTaskNotify(MenuTask_Handler, (uint32_t)(&ui_effect), eNoAction);
 }
         

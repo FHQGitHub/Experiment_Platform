@@ -88,7 +88,7 @@ void ui_action()
 						routine.flags.flagTeacherLogin = flag_reset;
 					if(!((present_bar_status == ACTION_EXP_DETAIL && ex_bar_status == ACTION_EXP_SCORE) || (present_bar_status == ACTION_EXP_SCORE && ex_bar_status == ACTION_EXP_DETAIL)))
 						menu_reconstruct_bar_content(present_bar_status);
-					menu_reconstruct_list_content(present_bar_status, present_list_status);
+					menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
                                         if(!((present_bar_status == ACTION_EXP_DETAIL && ex_bar_status == ACTION_EXP_SCORE) || (present_bar_status == ACTION_EXP_SCORE && ex_bar_status == ACTION_EXP_DETAIL)))
                                                 ex_list_status = 1;
 				}
@@ -98,8 +98,13 @@ void ui_action()
 			} else if(present_touch_area >= 5 && present_touch_area <= 7) {
 				present_list_status = present_touch_area - 4;
 				list_highlight_slide(ex_list_status, present_list_status);
-				if(present_list_status != ex_list_status)
-					menu_reconstruct_list_content(present_bar_status, present_list_status);
+				if(present_list_status != ex_list_status) {
+					if(ACTION_SETTING == present_bar_status)
+						menu_reconstruct_list_content(present_bar_status, present_list_status, 0);
+					else
+						menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
+					routine.flags.flagAdminLogin = flag_reset;
+				}
 				ex_list_status = present_list_status;
 			}
 			ex_touch_area = present_touch_area;

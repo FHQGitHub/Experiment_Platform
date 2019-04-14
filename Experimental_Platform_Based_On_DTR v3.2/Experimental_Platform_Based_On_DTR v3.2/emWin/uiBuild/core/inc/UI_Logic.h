@@ -55,7 +55,7 @@ void menu_list_element_set_visible(int bar_index, int list_index, WM_HWIN hWin, 
 void menu_list_element_set_data(int bar_index, int list_index, WM_HWIN hWin, void *edata);
 void menu_list_element_roleplay(void);
 void menu_reconstruct_bar_content(int bar_index);
-void menu_reconstruct_list_content(int bar_index, int list_index);
+void menu_reconstruct_list_content(int bar_index, int list_index, int effect);
 void menu_init(void);
 
         

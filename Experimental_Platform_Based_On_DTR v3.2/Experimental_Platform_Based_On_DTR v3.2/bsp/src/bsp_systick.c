@@ -47,29 +47,23 @@ void bsp_delay_us(__IO uint32_t nTime)
 	uint32_t tcnt;
 	uint32_t reload;
 
-	/* 刚进入时的计数器值 */
 	told = SysTick->VAL;
-	/* 重装再战 */
 	reload = SysTick->LOAD;
-	/* 清零计数值 */
 	tcnt = 0;
-	/* 需要的节拍数 */
 	ticks = nTime * (SystemCoreClock / 8000000);
 
 	while (1) {
 		tnow = SysTick->VAL;
 		if (tnow != told) {
-			/* SYSTICK是一个递减的计数器 */
 			if (tnow < told) {
 				tcnt += told - tnow;
 			}
-			/* 重新装载递减 */
+		
 			else {
 				tcnt += reload - tnow + told;
 			}
 			told = tnow;
 
-			/* 时间超过/等于要延迟的时间,则退出 */
 			if (tcnt >= ticks) {
 				break;
 			}

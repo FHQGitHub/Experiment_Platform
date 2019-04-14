@@ -227,6 +227,8 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		hListWin = hItem;
 		IMAGE_SetBitmap(hItem, &bmrect_sublist);
 		WM_BringToBottom(hItem);
+		
+		//pushButtonTextInitDialog();
 		break;
 
 	case WM_PAINT :

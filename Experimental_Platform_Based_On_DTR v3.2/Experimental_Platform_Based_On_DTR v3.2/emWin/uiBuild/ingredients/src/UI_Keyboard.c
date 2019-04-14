@@ -290,10 +290,8 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                 EDIT_GetText(hScoreEdit, score, 100);
                                 if(atoi(score) <= 100) {
                                         WM_HideWindow(hKeyboard);
-                                        WM_HideWindow(hScoreEdit);
                                         EDIT_SetText(hScoreEdit, "");
                                         memset(score, 0, 100);
-                                        routine.main_exp.sub_exp[present_list_status - 1].status = exp_finished;
                                         routine.main_exp.sub_exp[present_list_status - 1].subExpScore = atoi(score);
                                         
 					wifi_config.http_notify.event = http_exp_score;

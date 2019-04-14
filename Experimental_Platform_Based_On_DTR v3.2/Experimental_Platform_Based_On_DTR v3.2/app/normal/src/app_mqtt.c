@@ -332,7 +332,7 @@ mqttStatus mqttParsePublish(unsigned char *mqttDataBuff)
 		}
 		else if(0 == strcmp(event_type, "StudentLogin")) {
 			routine.flags.flagStudentLogin = flag_set;
-			menu_reconstruct_list_content(present_bar_status, present_list_status);
+			menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "SubExpStart")) {
