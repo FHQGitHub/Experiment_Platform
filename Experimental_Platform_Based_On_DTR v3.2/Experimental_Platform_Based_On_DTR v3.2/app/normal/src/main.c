@@ -63,9 +63,13 @@ TimerHandle_t xTimerTcpCheck = NULL;
 QueueHandle_t xQueueWifi = NULL;
 QueueHandle_t xQueueUiLogic = NULL;
 
+char db_setting_buf[100];
+
 int main()
 {
 	bsp_Init();
+	local_db.init();
+	localdbSettingParamInit();
 	expGetRoutineContents();
 	ui_init();
 	voiceInitCheck();

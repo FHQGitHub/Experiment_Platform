@@ -5,14 +5,14 @@
 #define LOCALDB_LOCAL_PATH 			"0:local"
 
 #define LOCALDB_INFO_PATH 			"0:local/info"
-#define LOCALDB_SETTING_PATH 		"0:local/setting"
-#define LOCALDB_RECORD_PATH 		"0:local/record"
+#define LOCALDB_SETTING_PATH 			"0:local/setting"
+#define LOCALDB_RECORD_PATH 			"0:local/record"
 #define LOCALDB_USER_PATH 			"0:local/user"
 
 #define DB_FILE_INFO 				"0:local/info/info.bin"
 #define DB_FILE_SETTING 			"0:local/setting/setting.bin"
 #define DB_FILE_RECORD			 	"0:local/record/record.bin"
-#define DB_FILE_LOG			 		"0:local/user/log.bin"
+#define DB_FILE_LOG			 	"0:local/user/log.bin"
 
 typedef struct volume_info {
 	unsigned char state;
@@ -94,8 +94,8 @@ typedef struct experiment_info{
 typedef struct db_info {
 	
 	int 				(*init)(void);
-	char *				(*read)(const char * filename);
-	int 				(*write)(const char * filename, const char *wr_buffer);
+	int				(*read)(const char * filename, char *p);
+	int 				(*write)(const char * filename, const char *p);
 	
 	machineInfoTypedef	machine;
 	settingInfoTypedef	setting;
@@ -107,5 +107,6 @@ typedef struct db_info {
 }dbInfoTypedef;
 
 extern dbInfoTypedef local_db;
+int localdbSettingParamInit(void);
 
 #endif

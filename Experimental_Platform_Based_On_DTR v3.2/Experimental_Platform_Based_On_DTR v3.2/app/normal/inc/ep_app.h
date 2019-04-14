@@ -20,6 +20,7 @@
 #include "app_epoch_match.h"
 #include "app_scanner.h"
 #include "app_mqtt.h"
+#include "app_localdb.h"
 
 enum switch_t{
         on,
@@ -31,6 +32,7 @@ typedef struct {
         enum switch_t voice;
         enum switch_t doze;
         enum switch_t mux;
+	int volume;
 }sys_config_t;
 
 typedef struct

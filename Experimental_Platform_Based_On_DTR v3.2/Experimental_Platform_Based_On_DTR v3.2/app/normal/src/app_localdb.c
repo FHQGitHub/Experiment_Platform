@@ -1,8 +1,8 @@
 #include "ep_app.h"
 
 static int db_init(void);
-static char * db_read(const char * filename);
-static int db_write(const char * filename, const char *wr_buffer);
+static int db_read(const char * filename, char *p);
+static int db_write(const char * filename, const char *p);
 
 
 dbInfoTypedef local_db = {
@@ -20,7 +20,7 @@ static int db_init()
 	FIL f;
 
 	result = f_mount(&dbfs, LOCALDB_ROOT, 1);
-	/* 未检测到文件系统时，执行格式化 */
+	
 	if (FR_NO_FILESYSTEM == result)	{
 
 		f_mkfs(LOCALDB_ROOT, 0, 0);
@@ -47,7 +47,7 @@ static int db_init()
 		return 0;
 	}
 
-	/*尝试创建info.bin文件*/
+	
 	result = f_open(&f, DB_FILE_INFO, FA_CREATE_NEW | FA_READ);
 	if(FR_OK == result) {
 		local_db.info = fs_new;
@@ -61,7 +61,6 @@ static int db_init()
 		return 0;
 	}
 
-	/*尝试创建setting.bin文件*/
 	result = f_open(&f, DB_FILE_SETTING, FA_CREATE_NEW | FA_READ);
 	if(FR_OK == result) {
 		local_db.info = fs_new;
@@ -75,7 +74,6 @@ static int db_init()
 		return 0;
 	}
 
-	/*尝试创建record.bin文件*/
 	result = f_open(&f, DB_FILE_RECORD, FA_CREATE_NEW | FA_READ);
 	if(FR_OK == result) {
 		local_db.info = fs_new;
@@ -89,7 +87,6 @@ static int db_init()
 		return 0;
 	}
 
-	/*尝试创建log.bin文件*/
 	result = f_open(&f, DB_FILE_LOG, FA_CREATE_NEW | FA_READ);
 	if(FR_OK == result) {
 		local_db.info = fs_new;
@@ -109,43 +106,142 @@ static int db_init()
 
 }
 
-static char * db_read(const char * filename)
+static int db_read(const char * filename, char *p)
 {
 	FIL f;
 	FRESULT result;
 	UINT br;
-	char *file_contents;
-
+	
+	if(NULL == p)
+		return -1;
 	result = f_open(&f, filename, FA_OPEN_ALWAYS | FA_READ);
 
 	if (result != FR_OK) {
-		return NULL;
+		return -1;
 	}
 
 	f_rewind(&f);
-	file_contents = (char*)calloc(sizeof(char), (f.fsize + 1));
-	if (!file_contents) {
-		f_close(&f);
-		return NULL;
-	}
-	if (f_read(&f, file_contents, f.fsize, &br) < 1) {
+
+	if (f_read(&f, p, f.fsize, &br) < 1) {
 		if (f_error(&f)) {
 			f_close(&f);
-			free(file_contents);
-			return NULL;
+			return -1;
 		}
 	}
 
 	f_close(&f);
-	file_contents[f.fsize] = '\0';
-	return file_contents;
+	return br;
 
 }
 
 
-static int db_write(const char * filename, const char *wr_buffer)
+static int db_write(const char * filename, const char *p)
 {
+	FIL f;
+	FRESULT result;
+	UINT wr;
+	
+	if(NULL == p)
+		return -1;
+	result = f_open(&f, filename, FA_OPEN_ALWAYS | FA_WRITE);
+
+	if (result != FR_OK) {
+		return -1;
+	}
+
+	f_rewind(&f);
+
+	if (f_write(&f, p, strlen(p), &wr) < 1) {
+		if (f_error(&f)) {
+			f_close(&f);
+			return -1;
+		}
+	}
+
+	f_close(&f);
+	return wr;
+}
+
+int localdbSettingParamInit()
+{
+	
+	int res = 0;
+	char db_write_buf[100];
+	char db_read_buf[100];
+	char *index_head = NULL;
+	char *index_tail = NULL;
+	char pattern[30];
+	
+	memset(db_read_buf, 0, 100);
+	res = local_db.read(DB_FILE_SETTING, db_read_buf);
+	if(0 == res) {
+		memset(db_write_buf, 0, 100);
+		sprintf(db_write_buf, "voice:on;mux:off;volume:1;id:NULL;");
+		local_db.write(DB_FILE_SETTING, db_write_buf);
+		res = local_db.read(DB_FILE_SETTING, db_read_buf);
+		if(res < 0) 
+			return -1;
+		
+	}
+	else if(!(strstr(db_read_buf, "voice") && strstr(db_read_buf, "mux") && strstr(db_read_buf, "volume") && strstr(db_read_buf, "id"))) {
+		memset(db_write_buf, 0, 100);
+		sprintf(db_write_buf, "voice:on;mux:off;volume:1;id:NULL;");
+		local_db.write(DB_FILE_SETTING, db_write_buf);
+		res = local_db.read(DB_FILE_SETTING, db_read_buf);
+		if(res < 0) 
+			return -1;
+	}
+	
+	index_head = strstr(db_read_buf, "voice");
+	index_tail = strstr(index_head, ";");
+	if(NULL == index_head || NULL == index_tail)
+		return -1;
+	
+	memset(pattern, 30, 0);
+	strncpy(pattern, index_head, index_tail - index_head);
+	
+	if(strstr(pattern, "on")) {
+		sys_config.voice = on;
+	}
+	else if(strstr(pattern, "off")) {
+		sys_config.voice = off;
+	}
+	
+	index_head = strstr(db_read_buf, "mux");
+	index_tail = strstr(index_head, ";");
+	if(NULL == index_head || NULL == index_tail) 
+		return -1;
+	
+	memset(pattern, 30, 0);
+	strncpy(pattern, index_head, index_tail - index_head);
+	
+	if(strstr(pattern, "on")) {
+	}
+	else if(strstr(pattern, "off")) {
+	}
+	
+	index_head = strstr(db_read_buf, "volume");
+	index_tail = strstr(index_head, ";");
+	if(NULL == index_head || NULL == index_tail) 
+		return -1;
+	
+	memset(pattern, 30, 0);
+	strncpy(pattern, index_head, index_tail - index_head);
+	
+	index_head = strstr(db_read_buf, "id");
+	index_tail = strstr(index_head, ";");
+	if(NULL == index_head || NULL == index_tail) 
+		return -1;
+	
+	memset(pattern, 30, 0);
+	strncpy(pattern, index_head, index_tail - index_head);
+	
 	return 0;
 }
-
+	
+	
+		
+	
+	
+	
 
