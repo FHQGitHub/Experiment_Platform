@@ -91,7 +91,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 	{ BUTTON_CreateIndirect, "Button", ID_BUTTON_BACK, 294, 13, 96, 27, 0, 0x0, 0 },
 	
 	{ IMAGE_CreateIndirect, "Image", ID_IMAGE_ADMIN, 167, 230, 66, 67, 0, 0, 0 },
-	{ BUTTON_CreateIndirect, "Button", ID_BUTTON_ADMIN, 128, 310, 144, 40, 0, 0x0, 0 },
+	{ BUTTON_CreateIndirect, "Button", ID_BUTTON_ADMIN, 120, 310, 160, 40, 0, 0x0, 0 },
 };
 
 

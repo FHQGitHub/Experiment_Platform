@@ -335,7 +335,6 @@ void menu_list_element_roleplay()
 		
 		if(2 == present_list_status) {
 			if(flag_reset == routine.flags.flagAdminLogin) {
-				menu_list_element_set_data(4, 2, hFunctionButton1, (void *)"管理员入口");
 				menu_list_element_set_visible(4, 2, hAdminImage, 1);
 				menu_list_element_set_visible(4, 2, hAdminButton, 1);
 				menu_list_element_set_visible(4, 2, hPreferenceText0, 0);
@@ -537,7 +536,7 @@ void menu_init()
 	menu_list_element_attach(4, 1, hScanButton, element_button, NULL, element_invisible);
 
 	menu_list_element_attach(4, 2, hAdminImage, element_image, NULL, element_visible);
-	menu_list_element_attach(4, 2, hAdminButton, element_button, (void *)"管理员入口 ", element_visible);
+	menu_list_element_attach(4, 2, hAdminButton, element_button, NULL, element_visible);
 	menu_list_element_attach(4, 2, hPreferenceText0, element_text, NULL, element_visible);
 	menu_list_element_attach(4, 2, hPreferenceText1, element_text, NULL, element_visible);
 	menu_list_element_attach(4, 2, hPreferenceTextMux, element_text, NULL, element_visible);
