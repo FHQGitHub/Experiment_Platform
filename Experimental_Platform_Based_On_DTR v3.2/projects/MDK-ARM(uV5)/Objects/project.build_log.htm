@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 1, 1, LIC=9N0X7-EHJIZ-487FA-1NGYF-FT85Q-Y8306
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\MDK5\installation site\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\项目\实验室改造\代码\Experimental_Platform_Based_On_DTR v3.2\projects\MDK-ARM(uV5)\project.uvprojx
+Project File Date:  04/10/2019
+
+<h2>Output:</h2>
+Build target 'v1.0'
+compiling main.c...
+..\..\app\normal\src\main.c(80): warning:  #188-D: enumerated type mixed with another type
+        wifi_config.setting.event = 0;
+..\..\app\normal\src\main.c(85): warning:  #188-D: enumerated type mixed with another type
+        wifi_config.http_notify.event = 0;
+..\..\app\normal\src\main.c(101): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
+        voiceDispString(volumeString);
+..\..\app\normal\src\main.c(244): warning:  #550-D: variable "bounce_cnt" was set but never used
+        int bounce_cnt = 0;
+..\..\app\normal\src\main.c(492): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                                sprintf((char *)request, "https://%s/openApi/experiment/signOut.json?id=%s&userId=%s", http_wifista_ip, sys_config.dev_id, routine.appointed_uid[0]);
+..\..\app\normal\src\main.c(278): warning:  #177-D: variable "i" was declared but never referenced
+        u8 i, j;
+..\..\app\normal\src\main.c(278): warning:  #177-D: variable "j" was declared but never referenced
+        u8 i, j;
+..\..\app\normal\src\main.c(280): warning:  #177-D: variable "recheck_times" was declared but never referenced
+        static u8 recheck_times = 0;
+..\..\app\normal\src\main.c(283): warning:  #177-D: variable "ulNotifiedValue" was declared but never referenced
+        uint32_t ulNotifiedValue;
+..\..\app\normal\src\main.c(703): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
+                                        voiceDispString(epoch_dev_report);
+..\..\app\normal\src\main.c(693): warning:  #177-D: variable "pmsg" was declared but never referenced
+        WM_MESSAGE pmsg;
+..\..\app\normal\src\main.c(746): warning:  #177-D: variable "pmsg" was declared but never referenced
+        WM_MESSAGE pmsg;
+..\..\app\normal\src\main.c(747): warning:  #177-D: variable "ulTimerID" was declared but never referenced
+        uint32_t ulTimerID;
+..\..\app\normal\src\main.c: 13 warnings, 0 errors
+linking...
+Program Size: Code=196608 RO-data=283464 RW-data=5136 ZI-data=193716  
+FromELF: creating hex file...
+".\Objects\project.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\项目\实验室改造\代码\Experimental_Platform_Based_On_DTR v3.2\projects\MDK-ARM(uV5)\RTE
+  D:\MDK5\installation site\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>
