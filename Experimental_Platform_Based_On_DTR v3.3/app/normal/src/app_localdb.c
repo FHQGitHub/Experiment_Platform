@@ -162,7 +162,7 @@ static int db_write(const char * filename, const char *p)
 	return wr;
 }
 
-int localdbSettingParamInit()
+int dbSettingParamInit()
 {
 	
 	int res = 0;
@@ -241,7 +241,134 @@ int localdbSettingParamInit()
 	return 0;
 }
 	
+int dbParamSetVoice(int state)
+{
+	char *index_head = NULL;
+	char db_read_buf[100];
+	static FRESULT result;
+	FIL f;
+	int res = 0;
+	int wr = 0;
 	
+	memset(db_read_buf, 0, 100);
+	res = local_db.read(DB_FILE_SETTING, db_read_buf);
+	if(res < 1)
+		return -1;
+	
+	index_head = strstr(db_read_buf, "voice");
+	if(NULL == index_head)
+		return -1;
+	
+	result = f_open(&f, DB_FILE_SETTING, FA_OPEN_EXISTING | FA_READ | FA_WRITE);
+	
+	if (result != FR_OK) {
+		return -1;
+	}
+	f_rewind(&f);
+	result = f_lseek(&f, index_head - db_read_buf + 6);
+	if (result != FR_OK) {
+		f_close(&f);
+		return -1;
+	}
+	if(state) {
+		if (f_write(&f, "on", strlen("on"), &wr) < 1) {
+			if (f_error(&f)) {
+				f_close(&f);
+				return -1;
+			}
+		}
+	}
+	else {
+		if (f_write(&f, "off", strlen("off"), &wr) < 1) {
+			if (f_error(&f)) {
+				f_close(&f);
+				return -1;
+			}
+		}
+	}
+	
+	f_close(&f);
+	return wr;
+		
+}
+
+int dbParamSetVolume(int volume)
+{
+	char *index_head = NULL;
+	char db_read_buf[100];
+	static FRESULT result;
+	FIL f;
+	int res = 0;
+	int wr = 0;
+	
+	memset(db_read_buf, 0, 100);
+	res = local_db.read(DB_FILE_SETTING, db_read_buf);
+	if(res < 1)
+		return -1;
+	
+	index_head = strstr(db_read_buf, "volume");
+	
+	
+	result = f_open(&f, DB_FILE_SETTING, FA_OPEN_EXISTING | FA_READ | FA_WRITE);
+	
+	if (result != FR_OK) {
+		return -1;
+	}
+	f_rewind(&f);
+	result = f_lseek(&f, index_head - db_read_buf + 7);
+	if (result != FR_OK) {
+		f_close(&f);
+		return -1;
+	}
+	
+	f_close(&f);
+	return wr;
+}
+
+int dbParamSetMux(int state)
+{
+	static FRESULT result;
+	FIL f;
+	int wr = 0;
+	
+	result = f_open(&f, DB_FILE_SETTING, FA_OPEN_EXISTING | FA_READ | FA_WRITE);
+	
+	if (result != FR_OK) {
+		return -1;
+	}
+	f_rewind(&f);
+	result = f_lseek(&f, 13);
+	if (result != FR_OK) {
+		f_close(&f);
+		return -1;
+	}
+	if(state) {
+		if (f_write(&f, "on", strlen("on"), &wr) < 1) {
+			if (f_error(&f)) {
+				f_close(&f);
+				return -1;
+			}
+		}
+	}
+	else {
+		if (f_write(&f, "off", strlen("off"), &wr) < 1) {
+			if (f_error(&f)) {
+				f_close(&f);
+				return -1;
+			}
+		}
+	}
+	
+	f_close(&f);
+	return wr;
+}
+
+int dbParamSetId(char *id)
+{
+	
+}
+
+
 		
 	
 	

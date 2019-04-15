@@ -154,9 +154,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 	u8 		slideValue = 0;
 	u8 		volumeString[20];
 	u8 		p[50];
+	char 		db_write_buf[50];
 	wifi_config_t 	*notify = NULL;
 	epoch_dev_t 	*epoch_notify = NULL;
 	wifi_config_t 	wifi_config;
+	char db_read_buf[100];
+	
 	memset(&wifi_config, 0, sizeof(wifi_config));
 
 	switch (pMsg->MsgId) {
@@ -423,10 +426,14 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 			case WM_NOTIFICATION_RELEASED:
 				if(sys_config.voice == on) {
 					sys_config.voice = off; 
+					dbParamSetVoice(0);
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_off);
+					bsp_delay_ms(100);
 				} else {
 					sys_config.voice = on;
+					dbParamSetVoice(1);
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_on);
+					bsp_delay_ms(100);
 				}
 				break;
 
@@ -601,8 +608,10 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 			switch(NCode) {
 			case WM_NOTIFICATION_VALUE_CHANGED:
 				slideValue = SLIDER_GetValue(hVolumeSlider);
-				sprintf((char*)volumeString, "[v%c]sound102", slideValue / 10 + '0');
+				sys_config.volume = slideValue / 10;
+				sprintf((char*)volumeString, "[v%c]sound102", sys_config.volume / 10 + '0');
 				voiceDispString(volumeString);
+				
 				break;
 			}
 			break;

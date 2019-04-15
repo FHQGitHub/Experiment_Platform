@@ -98,7 +98,7 @@ int main()
 {
 	bsp_Init();
 	local_db.init();
-	localdbSettingParamInit();
+	dbSettingParamInit();
 	expGetRoutineContents();
 	ui_init();
 	voiceInitCheck();

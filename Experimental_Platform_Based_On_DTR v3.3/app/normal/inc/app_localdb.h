@@ -107,6 +107,7 @@ typedef struct db_info {
 }dbInfoTypedef;
 
 extern dbInfoTypedef local_db;
-int localdbSettingParamInit(void);
+int dbSettingParamInit(void);
+int dbParamSetVoice(int state);
 
 #endif
