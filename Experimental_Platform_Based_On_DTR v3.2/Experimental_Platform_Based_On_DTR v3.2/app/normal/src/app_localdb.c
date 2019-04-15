@@ -216,8 +216,10 @@ int localdbSettingParamInit()
 	strncpy(pattern, index_head, index_tail - index_head);
 	
 	if(strstr(pattern, "on")) {
+		sys_config.mux = on;
 	}
 	else if(strstr(pattern, "off")) {
+		sys_config.mux = off;
 	}
 	
 	index_head = strstr(db_read_buf, "volume");

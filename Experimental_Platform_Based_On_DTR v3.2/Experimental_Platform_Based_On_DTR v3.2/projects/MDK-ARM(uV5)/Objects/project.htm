@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sun Apr 14 12:11:30 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sun Apr 14 12:19:08 2019
 <BR><P>
 <H3>Maximum Stack Usage =       4624 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -347,7 +347,7 @@ Function Pointers
  <LI><a href="#[e4]">_cbGet_40_Data</a> from ui_font.o(i._cbGet_40_Data) referenced from ui_font.o(i.GUI_SetXBF)
  <LI><a href="#[105]">_cbInvalidateOne</a> from wm_bringtotop.o(i._cbInvalidateOne) referenced from wm_bringtotop.o(i._BringToTop)
  <LI><a href="#[104]">_cbPaintMemDev</a> from wm.o(i._cbPaintMemDev) referenced from wm.o(i.WM__Paint)
- <LI><a href="#[11b]">_cbPushButtonBitmap</a> from ui_pushbutton.o(i._cbPushButtonBitmap) referenced from ui_settingwindow.o(i._cbDialog)
+ <LI><a href="#[11b]">_cbPushButtonBitmap</a> from ui_pushbutton.o(i._cbPushButtonBitmap) referenced 2 times from ui_settingwindow.o(i._cbDialog)
  <LI><a href="#[11a]">_cbPushButtonComplex</a> from ui_keyboard.o(i._cbPushButtonComplex) referenced from ui_keyboard.o(i._cbDialog)
  <LI><a href="#[128]">_cbPushButtonText</a> from ui_pushbutton.o(i._cbPushButtonText) referenced 2 times from ui_subexpwindow.o(i.pushButtonInitDialog)
  <LI><a href="#[101]">_cbTimer</a> from wm_timer.o(i._cbTimer) referenced from wm_timer.o(i.WM_CreateTimer)
@@ -12247,7 +12247,7 @@ Global Symbols
 <LI><a href="#[618]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;list_reset
 </UL>
 
-<P><STRONG><a name="[619]"></a>localdbSettingParamInit</STRONG> (Thumb, 428 bytes, Stack size 248 bytes, app_localdb.o(i.localdbSettingParamInit))
+<P><STRONG><a name="[619]"></a>localdbSettingParamInit</STRONG> (Thumb, 444 bytes, Stack size 248 bytes, app_localdb.o(i.localdbSettingParamInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = localdbSettingParamInit &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[415]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
@@ -15225,7 +15225,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ui_keyboard.o(i._cbDialog)
 </UL>
-<P><STRONG><a name="[122]"></a>_cbDialog</STRONG> (Thumb, 3934 bytes, Stack size 136 bytes, ui_settingwindow.o(i._cbDialog))
+<P><STRONG><a name="[122]"></a>_cbDialog</STRONG> (Thumb, 3994 bytes, Stack size 136 bytes, ui_settingwindow.o(i._cbDialog))
 <BR><BR>[Stack]<UL><LI>Max Depth = 992<LI>Call Chain = _cbDialog &rArr; notify_show &rArr; GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _Exec1Draw &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_ALLOC_AllocNoInit &rArr; _Alloc &rArr; _InitOnce &rArr; _EnlargeBlocks &rArr;  _Alloc (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericNotify

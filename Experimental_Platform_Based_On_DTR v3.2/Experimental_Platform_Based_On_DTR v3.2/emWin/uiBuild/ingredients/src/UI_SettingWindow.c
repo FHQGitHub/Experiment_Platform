@@ -282,7 +282,10 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_VOICE);
 		hVoiceButton = hItem;
 		BUTTON_SetFocussable(hItem, 0);
-		BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_on);
+		if(sys_config.voice  == on)
+			BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_on);
+		else
+			BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_off);
 		WM_SetCallback(hItem, _cbPushButtonBitmap);
 		WM_HideWindow(hItem);
 
@@ -294,7 +297,10 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_MUX);
 		hMuxButton = hItem;
 		BUTTON_SetFocussable(hItem, 0);
-		BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_on);
+		if(sys_config.mux == on)
+			BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_on);
+		else
+			BUTTON_SetBitmap(hItem, BUTTON_BI_PRESSED, &bmswitch_off);
 		WM_SetCallback(hItem, _cbPushButtonBitmap);
 		WM_HideWindow(hItem);
 
@@ -405,7 +411,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				break;
 			case WM_NOTIFICATION_RELEASED:
 				if(sys_config.voice == on) {
-					sys_config.voice = off;
+					sys_config.voice = off; 
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_off);
 				} else {
 					sys_config.voice = on;
@@ -425,7 +431,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				if(sys_config.mux == on) {
 					sys_config.mux = off;
 					BUTTON_SetBitmap(hMuxButton, BUTTON_BI_PRESSED, &bmswitch_off);
+					
 				} else {
+					
 					sys_config.mux = on;
 					BUTTON_SetBitmap(hMuxButton, BUTTON_BI_PRESSED, &bmswitch_on);
 				}
