@@ -110,6 +110,7 @@ void ui_action()
 			ex_touch_area = present_touch_area;
 		}
 	}
+	
 }
 
 
