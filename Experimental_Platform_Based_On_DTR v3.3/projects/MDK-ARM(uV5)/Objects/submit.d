@@ -1,7 +1,7 @@
 .\objects\submit.o: ..\..\emWin\icon\src\submit.c
-.\objects\submit.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\submit.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
 .\objects\submit.o: ..\..\emWin\core\inc\GUI.h
-.\objects\submit.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\submit.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\submit.o: ..\..\emWin\core\inc\GUI_ConfDefaults.h
 .\objects\submit.o: ..\..\emWin\core\inc\GUIConf.h
 .\objects\submit.o: ..\..\emWin\core\inc\GUI_Type.h

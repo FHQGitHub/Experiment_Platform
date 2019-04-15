@@ -8,7 +8,7 @@
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\Global.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\WM_GUI.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\GUI.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\GUI_Version.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\BUTTON.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\DIALOG_Intern.h
@@ -46,18 +46,18 @@
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\TEXT.h
 .\objects\ui_keyboard.o: ..\..\emWin\core\inc\TREEVIEW.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\ep_app.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\ctype.h
 .\objects\ui_keyboard.o: ..\..\bsp\inc\bsp.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\ui_keyboard.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -110,6 +110,7 @@
 .\objects\ui_keyboard.o: ..\..\os\include\list.h
 .\objects\ui_keyboard.o: ..\..\os\include\event_groups.h
 .\objects\ui_keyboard.o: ..\..\os\include\timers.h
+.\objects\ui_keyboard.o: ..\..\os\include\semphr.h
 .\objects\ui_keyboard.o: ..\..\fs\ff.h
 .\objects\ui_keyboard.o: ..\..\fs\integer.h
 .\objects\ui_keyboard.o: ..\..\fs\ffconf.h
@@ -143,8 +144,8 @@
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_exp_routine.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_http.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\ui_keyboard.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\time.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdbool.h
+.\objects\ui_keyboard.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\time.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_localdb.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_epoch_match.h
 .\objects\ui_keyboard.o: ..\..\app\normal\inc\app_scanner.h

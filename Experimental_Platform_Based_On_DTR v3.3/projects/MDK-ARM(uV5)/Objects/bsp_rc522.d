@@ -1,14 +1,14 @@
 .\objects\bsp_rc522.o: ..\..\bsp\src\bsp_rc522.c
 .\objects\bsp_rc522.o: ..\..\bsp\inc\bsp.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\bsp_rc522.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -46,7 +46,7 @@
 .\objects\bsp_rc522.o: ..\..\module\inc\oop.h
 .\objects\bsp_rc522.o: ..\..\module\inc\error.h
 .\objects\bsp_rc522.o: ..\..\module\inc\parson.h
-.\objects\bsp_rc522.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\bsp_rc522.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\bsp_rc522.o: ..\..\module\inc\malloc.h
 .\objects\bsp_rc522.o: ..\..\os\include\FreeRTOS.h
 .\objects\bsp_rc522.o: ..\..\os\include\FreeRTOSConfig.h
@@ -62,6 +62,7 @@
 .\objects\bsp_rc522.o: ..\..\os\include\list.h
 .\objects\bsp_rc522.o: ..\..\os\include\event_groups.h
 .\objects\bsp_rc522.o: ..\..\os\include\timers.h
+.\objects\bsp_rc522.o: ..\..\os\include\semphr.h
 .\objects\bsp_rc522.o: ..\..\fs\ff.h
 .\objects\bsp_rc522.o: ..\..\fs\integer.h
 .\objects\bsp_rc522.o: ..\..\fs\ffconf.h

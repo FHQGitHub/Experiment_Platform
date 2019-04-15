@@ -1,5 +1,5 @@
 .\objects\guidrv_template.o: ..\..\emWin\core\config\GUIDRV_Template.c
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\guidrv_template.o: ..\..\emWin\core\inc\LCD_Private.h
 .\objects\guidrv_template.o: ..\..\emWin\core\inc\LCDConf.h
 .\objects\guidrv_template.o: ..\..\emWin\core\inc\LCD_Protected.h
@@ -15,15 +15,15 @@
 .\objects\guidrv_template.o: ..\..\emWin\core\inc\WM_GUI.h
 .\objects\guidrv_template.o: ..\..\emWin\core\inc\LCD_ConfDefaults.h
 .\objects\guidrv_template.o: ..\..\bsp\inc\bsp.h
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
 .\objects\guidrv_template.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\guidrv_template.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\guidrv_template.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\guidrv_template.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\guidrv_template.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\guidrv_template.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\guidrv_template.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\guidrv_template.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\guidrv_template.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -76,6 +76,7 @@
 .\objects\guidrv_template.o: ..\..\os\include\list.h
 .\objects\guidrv_template.o: ..\..\os\include\event_groups.h
 .\objects\guidrv_template.o: ..\..\os\include\timers.h
+.\objects\guidrv_template.o: ..\..\os\include\semphr.h
 .\objects\guidrv_template.o: ..\..\fs\ff.h
 .\objects\guidrv_template.o: ..\..\fs\integer.h
 .\objects\guidrv_template.o: ..\..\fs\ffconf.h

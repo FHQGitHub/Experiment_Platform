@@ -1,17 +1,17 @@
 .\objects\app_wifi_common.o: ..\..\app\normal\src\app_wifi_common.c
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\ep_app.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\ctype.h
 .\objects\app_wifi_common.o: ..\..\bsp\inc\bsp.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\app_wifi_common.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -49,7 +49,7 @@
 .\objects\app_wifi_common.o: ..\..\module\inc\oop.h
 .\objects\app_wifi_common.o: ..\..\module\inc\error.h
 .\objects\app_wifi_common.o: ..\..\module\inc\parson.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\app_wifi_common.o: ..\..\module\inc\malloc.h
 .\objects\app_wifi_common.o: ..\..\os\include\FreeRTOS.h
 .\objects\app_wifi_common.o: ..\..\os\include\FreeRTOSConfig.h
@@ -65,6 +65,7 @@
 .\objects\app_wifi_common.o: ..\..\os\include\list.h
 .\objects\app_wifi_common.o: ..\..\os\include\event_groups.h
 .\objects\app_wifi_common.o: ..\..\os\include\timers.h
+.\objects\app_wifi_common.o: ..\..\os\include\semphr.h
 .\objects\app_wifi_common.o: ..\..\fs\ff.h
 .\objects\app_wifi_common.o: ..\..\fs\integer.h
 .\objects\app_wifi_common.o: ..\..\fs\ffconf.h
@@ -143,8 +144,8 @@
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_exp_routine.h
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_http.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\app_wifi_common.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\time.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdbool.h
+.\objects\app_wifi_common.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\time.h
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_localdb.h
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_epoch_match.h
 .\objects\app_wifi_common.o: ..\..\app\normal\inc\app_scanner.h

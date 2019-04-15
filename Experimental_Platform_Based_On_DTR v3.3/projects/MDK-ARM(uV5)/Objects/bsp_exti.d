@@ -1,17 +1,17 @@
 .\objects\bsp_exti.o: ..\..\bsp\src\bsp_exti.c
 .\objects\bsp_exti.o: ..\..\app\normal\inc\ep_app.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\ctype.h
 .\objects\bsp_exti.o: ..\..\bsp\inc\bsp.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
 .\objects\bsp_exti.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_exti.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\bsp_exti.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_exti.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\bsp_exti.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\bsp_exti.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\bsp_exti.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -49,7 +49,7 @@
 .\objects\bsp_exti.o: ..\..\module\inc\oop.h
 .\objects\bsp_exti.o: ..\..\module\inc\error.h
 .\objects\bsp_exti.o: ..\..\module\inc\parson.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\bsp_exti.o: ..\..\module\inc\malloc.h
 .\objects\bsp_exti.o: ..\..\os\include\FreeRTOS.h
 .\objects\bsp_exti.o: ..\..\os\include\FreeRTOSConfig.h
@@ -65,6 +65,7 @@
 .\objects\bsp_exti.o: ..\..\os\include\list.h
 .\objects\bsp_exti.o: ..\..\os\include\event_groups.h
 .\objects\bsp_exti.o: ..\..\os\include\timers.h
+.\objects\bsp_exti.o: ..\..\os\include\semphr.h
 .\objects\bsp_exti.o: ..\..\fs\ff.h
 .\objects\bsp_exti.o: ..\..\fs\integer.h
 .\objects\bsp_exti.o: ..\..\fs\ffconf.h
@@ -143,8 +144,8 @@
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_exp_routine.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_http.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\bsp_exti.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\time.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdbool.h
+.\objects\bsp_exti.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\time.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_localdb.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_epoch_match.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_scanner.h

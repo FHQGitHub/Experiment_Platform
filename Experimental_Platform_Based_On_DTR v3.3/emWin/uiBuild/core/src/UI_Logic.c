@@ -556,8 +556,7 @@ void menu_init()
 	menu_list_element_attach(4, 3, hInfoText4, element_text, (void *)"系统版本:      FreeRTOS Kernel V10.0.1", element_visible);
 	menu_list_element_attach(4, 3, hInfoText5, element_text, (void *)"GUI版本:       STemWin V5.32",           element_visible);
 	menu_list_element_attach(4, 3, hInfoText6, element_text, (void *)"驱动框架:      DTR v1.0",                element_visible);
-	menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)"设备ID:          1551",                  element_visible);
-	menu_list_element_attach(4, 3, hInfoText8, element_text, (void *)"开发团队:      Hdu-Microchip-Lab",       element_visible);
+	menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)"开发团队:      Hdu-Microchip-Lab",       element_visible);
 	menu_list_element_attach(4, 3, hInfoText9, element_text, (void *)"(c) 2018 - 2022 Hdu-Microchip-Lab",      element_visible);
 
 

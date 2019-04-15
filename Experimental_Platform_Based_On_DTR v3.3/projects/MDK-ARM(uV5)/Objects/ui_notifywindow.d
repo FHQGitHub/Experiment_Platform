@@ -8,7 +8,7 @@
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\Global.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\WM_GUI.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\GUI.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\GUI_Version.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\BUTTON.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\DIALOG_Intern.h
@@ -46,17 +46,17 @@
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\TEXT.h
 .\objects\ui_notifywindow.o: ..\..\emWin\core\inc\TREEVIEW.h
 .\objects\ui_notifywindow.o: ..\..\emWin\uiBuild\ingredients\inc\uiBuild.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
 .\objects\ui_notifywindow.o: ..\..\bsp\inc\bsp.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\ui_notifywindow.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ui_notifywindow.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\ui_notifywindow.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -109,6 +109,7 @@
 .\objects\ui_notifywindow.o: ..\..\os\include\list.h
 .\objects\ui_notifywindow.o: ..\..\os\include\event_groups.h
 .\objects\ui_notifywindow.o: ..\..\os\include\timers.h
+.\objects\ui_notifywindow.o: ..\..\os\include\semphr.h
 .\objects\ui_notifywindow.o: ..\..\fs\ff.h
 .\objects\ui_notifywindow.o: ..\..\fs\integer.h
 .\objects\ui_notifywindow.o: ..\..\fs\ffconf.h

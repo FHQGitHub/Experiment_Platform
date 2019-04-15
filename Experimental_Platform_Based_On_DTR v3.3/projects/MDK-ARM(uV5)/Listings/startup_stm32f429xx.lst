@@ -903,20 +903,18 @@ ARM Macro Assembler    Page 14
   463 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\objects\startup_stm32f429xx.d -o.\objects\startup_stm32f429xx
-.o -I"D:\项目\实验室改造\代码\Experimental_Platform_Based_On_DTR v3.3\projects\
-MDK-ARM(uV5)\RTE" -I"D:\MDK5\installation site\ARM\PACK\Keil\STM32F4xx_DFP\1.0.
-8\Device\Include" -I"D:\MDK5\installation site\ARM\CMSIS\Include" --predefine="
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\obj
+ects\startup_stm32f429xx.d -o.\objects\startup_stm32f429xx.o -I"E:\Keil MDK\MDK
+511_CORE\ARM\RV31\INC" -I"E:\Keil MDK\MDK511_PACK\ARM\CMSIS\4.1.0\CMSIS\Include
+" -I"E:\Keil MDK\MDK511_PACK\Keil\STM32F4xx_DFP\2.3.0\Device\Include" --predefi
+ne="__MICROLIB SETA 1" --list=.\listings\startup_stm32f429xx.lst ..\..\lib\arm\
 
 
 
 ARM Macro Assembler    Page 15 
 
 
-__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="STM32F
-429_439xx SETA 1" --list=.\listings\startup_stm32f429xx.lst ..\..\lib\arm\core\
-startup_stm32f429xx.s
+core\startup_stm32f429xx.s
 
 
 
@@ -2088,4 +2086,4 @@ Symbol: __main
       At line 200 in file ..\..\lib\arm\core\startup_stm32f429xx.s
 Comment: __main used once
 2 symbols
-453 symbols in table
+451 symbols in table

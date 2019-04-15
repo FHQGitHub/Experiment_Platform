@@ -1,15 +1,15 @@
 .\objects\driver.o: ..\..\bsp\src\driver.c
 .\objects\driver.o: ..\..\bsp\inc\driver.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
 .\objects\driver.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\driver.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\driver.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\driver.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\driver.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\driver.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\driver.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\driver.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\driver.o: ..\..\lib\arm\core\core_cmSimd.h

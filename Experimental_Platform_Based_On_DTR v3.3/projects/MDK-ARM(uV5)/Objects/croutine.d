@@ -1,7 +1,7 @@
 .\objects\croutine.o: ..\..\os\core\croutine.c
 .\objects\croutine.o: ..\..\os\include\FreeRTOS.h
-.\objects\croutine.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\croutine.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\croutine.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
+.\objects\croutine.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\croutine.o: ..\..\os\include\FreeRTOSConfig.h
 .\objects\croutine.o: ..\..\os\include\projdefs.h
 .\objects\croutine.o: ..\..\os\include\portable.h

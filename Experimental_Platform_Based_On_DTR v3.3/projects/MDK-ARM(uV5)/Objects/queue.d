@@ -1,9 +1,9 @@
 .\objects\queue.o: ..\..\os\core\queue.c
-.\objects\queue.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\queue.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
+.\objects\queue.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\queue.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
 .\objects\queue.o: ..\..\os\include\FreeRTOS.h
-.\objects\queue.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\queue.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\queue.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
+.\objects\queue.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\queue.o: ..\..\os\include\FreeRTOSConfig.h
 .\objects\queue.o: ..\..\os\include\projdefs.h
 .\objects\queue.o: ..\..\os\include\portable.h

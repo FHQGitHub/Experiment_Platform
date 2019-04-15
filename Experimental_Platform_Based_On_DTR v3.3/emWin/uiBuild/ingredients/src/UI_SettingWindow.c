@@ -324,8 +324,6 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
 		EDIT_SetMaxLen(hItem, 100);
 		WM_SetFocus(hItem);
-		EDIT_SetText(hItem, "100.2.217.1.1");
-		EDIT_GetText(hItem, sys_config.dev_id, sizeof(sys_config.dev_id));
 		WM_HideWindow(hItem);
 
 
@@ -554,7 +552,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				if(strstr("刷新列表 ", (char *)p)) {
 					wifi_config.setting.event = wifi_scan;
 					if(errQUEUE_FULL == xQueueSend(xQueueWifi, (const void *)(&wifi_config), 50))
-						notify_show("操作无效", "请稍后");
+						notify_show("操作无效", "请稍候");
 
 					for(i = 0; i < 20; i++) {
 						LISTVIEW_SetItemText(hConnectList, 0, i + 1, "");

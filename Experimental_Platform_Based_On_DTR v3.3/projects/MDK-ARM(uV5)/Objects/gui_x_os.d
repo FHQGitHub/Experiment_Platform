@@ -1,6 +1,6 @@
 .\objects\gui_x_os.o: ..\..\emWin\core\config\GUI_X_OS.c
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\GUI.h
-.\objects\gui_x_os.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gui_x_os.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\GUI_ConfDefaults.h
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\GUIConf.h
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\GUI_Type.h
@@ -8,7 +8,7 @@
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\Global.h
 .\objects\gui_x_os.o: ..\..\emWin\core\inc\GUI_Version.h
 .\objects\gui_x_os.o: ..\..\os\include\FreeRTOS.h
-.\objects\gui_x_os.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gui_x_os.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\gui_x_os.o: ..\..\os\include\FreeRTOSConfig.h
 .\objects\gui_x_os.o: ..\..\os\include\projdefs.h
 .\objects\gui_x_os.o: ..\..\os\include\portable.h

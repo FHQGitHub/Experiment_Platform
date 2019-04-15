@@ -1,8 +1,8 @@
 .\objects\heap_4.o: ..\..\os\portable\MemMang\heap_4.c
-.\objects\heap_4.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\heap_4.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
 .\objects\heap_4.o: ..\..\os\include\FreeRTOS.h
-.\objects\heap_4.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\heap_4.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\heap_4.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
+.\objects\heap_4.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\heap_4.o: ..\..\os\include\FreeRTOSConfig.h
 .\objects\heap_4.o: ..\..\os\include\projdefs.h
 .\objects\heap_4.o: ..\..\os\include\portable.h

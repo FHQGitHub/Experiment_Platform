@@ -1,7 +1,7 @@
 .\objects\ui_font.o: ..\..\emWin\uiBuild\ingredients\src\UI_Font.c
 .\objects\ui_font.o: ..\..\emWin\uiBuild\ingredients\inc\UI_Font.h
 .\objects\ui_font.o: ..\..\emWin\core\inc\GUI.h
-.\objects\ui_font.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ui_font.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\ui_font.o: ..\..\emWin\core\inc\GUI_ConfDefaults.h
 .\objects\ui_font.o: ..\..\emWin\core\inc\GUIConf.h
 .\objects\ui_font.o: ..\..\emWin\core\inc\GUI_Type.h
@@ -14,7 +14,7 @@
 .\objects\ui_font.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\ui_font.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_font.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\ui_font.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ui_font.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\ui_font.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\ui_font.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\ui_font.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -49,4 +49,4 @@
 .\objects\ui_font.o: ..\..\lib\arm\lib\inc\stm32f4xx_FMC.h
 .\objects\ui_font.o: ..\..\lib\arm\lib\inc\stm32f4xx_ltdc.h
 .\objects\ui_font.o: ..\..\lib\arm\lib\inc\stm32f4xx_sai.h
-.\objects\ui_font.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\ui_font.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h

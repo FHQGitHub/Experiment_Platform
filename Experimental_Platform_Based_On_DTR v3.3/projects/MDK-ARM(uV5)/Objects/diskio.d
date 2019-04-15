@@ -7,7 +7,7 @@
 .\objects\diskio.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\diskio.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\diskio.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\diskio.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\diskio.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\diskio.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\diskio.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\diskio.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -42,4 +42,4 @@
 .\objects\diskio.o: ..\..\lib\arm\lib\inc\stm32f4xx_FMC.h
 .\objects\diskio.o: ..\..\lib\arm\lib\inc\stm32f4xx_ltdc.h
 .\objects\diskio.o: ..\..\lib\arm\lib\inc\stm32f4xx_sai.h
-.\objects\diskio.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\diskio.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h

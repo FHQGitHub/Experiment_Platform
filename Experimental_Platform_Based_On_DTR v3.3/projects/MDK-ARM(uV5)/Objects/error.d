@@ -1,14 +1,14 @@
 .\objects\error.o: ..\..\module\src\error.c
 .\objects\error.o: ..\..\bsp\inc\bsp.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
 .\objects\error.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\error.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\error.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\error.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\error.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\error.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\error.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -46,7 +46,7 @@
 .\objects\error.o: ..\..\module\inc\oop.h
 .\objects\error.o: ..\..\module\inc\error.h
 .\objects\error.o: ..\..\module\inc\parson.h
-.\objects\error.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\error.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\error.o: ..\..\module\inc\malloc.h
 .\objects\error.o: ..\..\os\include\FreeRTOS.h
 .\objects\error.o: ..\..\os\include\FreeRTOSConfig.h
@@ -62,6 +62,7 @@
 .\objects\error.o: ..\..\os\include\list.h
 .\objects\error.o: ..\..\os\include\event_groups.h
 .\objects\error.o: ..\..\os\include\timers.h
+.\objects\error.o: ..\..\os\include\semphr.h
 .\objects\error.o: ..\..\fs\ff.h
 .\objects\error.o: ..\..\fs\integer.h
 .\objects\error.o: ..\..\fs\ffconf.h

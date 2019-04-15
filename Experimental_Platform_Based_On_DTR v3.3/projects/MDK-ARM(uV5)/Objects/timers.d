@@ -1,8 +1,8 @@
 .\objects\timers.o: ..\..\os\core\timers.c
-.\objects\timers.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\timers.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
 .\objects\timers.o: ..\..\os\include\FreeRTOS.h
-.\objects\timers.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\timers.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timers.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
+.\objects\timers.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\timers.o: ..\..\os\include\FreeRTOSConfig.h
 .\objects\timers.o: ..\..\os\include\projdefs.h
 .\objects\timers.o: ..\..\os\include\portable.h

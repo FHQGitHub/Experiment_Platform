@@ -4,7 +4,7 @@
 .\objects\malloc.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\malloc.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\malloc.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\malloc.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\malloc.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\malloc.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\malloc.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\malloc.o: ..\..\lib\arm\core\core_cmSimd.h

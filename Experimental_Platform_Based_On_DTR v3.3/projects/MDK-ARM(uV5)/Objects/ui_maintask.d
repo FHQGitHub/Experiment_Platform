@@ -1,11 +1,11 @@
 .\objects\ui_maintask.o: ..\..\emWin\uiBuild\core\src\UI_MainTask.c
 .\objects\ui_maintask.o: ..\..\emWin\uiBuild\ingredients\inc\uiBuild.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\GUI.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\GUI_ConfDefaults.h
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\GUIConf.h
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\GUI_Type.h
@@ -51,12 +51,12 @@
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\TEXT.h
 .\objects\ui_maintask.o: ..\..\emWin\core\inc\TREEVIEW.h
 .\objects\ui_maintask.o: ..\..\bsp\inc\bsp.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
 .\objects\ui_maintask.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_maintask.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\ui_maintask.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\ui_maintask.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\ui_maintask.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ui_maintask.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\ui_maintask.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\ui_maintask.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\ui_maintask.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -109,6 +109,7 @@
 .\objects\ui_maintask.o: ..\..\os\include\list.h
 .\objects\ui_maintask.o: ..\..\os\include\event_groups.h
 .\objects\ui_maintask.o: ..\..\os\include\timers.h
+.\objects\ui_maintask.o: ..\..\os\include\semphr.h
 .\objects\ui_maintask.o: ..\..\fs\ff.h
 .\objects\ui_maintask.o: ..\..\fs\integer.h
 .\objects\ui_maintask.o: ..\..\fs\ffconf.h

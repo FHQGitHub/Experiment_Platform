@@ -4,7 +4,7 @@
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\stm32f4xx_spi.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_spi.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\stm32f4xx_spi.o: ..\..\lib\arm\core\core_cmSimd.h

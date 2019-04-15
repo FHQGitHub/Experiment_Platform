@@ -1,6 +1,6 @@
 .\objects\gui_x_touch.o: ..\..\emWin\core\config\GUI_X_Touch.c
 .\objects\gui_x_touch.o: ..\..\emWin\core\inc\GUI.h
-.\objects\gui_x_touch.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gui_x_touch.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\gui_x_touch.o: ..\..\emWin\core\inc\GUI_ConfDefaults.h
 .\objects\gui_x_touch.o: ..\..\emWin\core\inc\GUIConf.h
 .\objects\gui_x_touch.o: ..\..\emWin\core\inc\GUI_Type.h
@@ -12,7 +12,7 @@
 .\objects\gui_x_touch.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\gui_x_touch.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\gui_x_touch.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\gui_x_touch.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gui_x_touch.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\gui_x_touch.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\gui_x_touch.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\gui_x_touch.o: ..\..\lib\arm\core\core_cmSimd.h

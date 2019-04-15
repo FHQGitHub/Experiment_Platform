@@ -3,7 +3,7 @@
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\system_stm32f4xx.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\system_stm32f4xx.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\system_stm32f4xx.o: ..\..\lib\arm\core\core_cmSimd.h

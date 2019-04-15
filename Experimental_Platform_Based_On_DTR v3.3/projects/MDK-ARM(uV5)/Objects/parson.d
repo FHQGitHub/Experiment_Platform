@@ -1,18 +1,18 @@
 .\objects\parson.o: ..\..\module\src\parson.c
 .\objects\parson.o: ..\..\module\inc\parson.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\ctype.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\errno.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\ctype.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\errno.h
 .\objects\parson.o: ..\..\module\inc\malloc.h
 .\objects\parson.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\parson.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\parson.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\parson.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\parson.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\parson.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\parson.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\parson.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\parson.o: ..\..\lib\arm\core\core_cmSimd.h

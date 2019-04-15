@@ -1,14 +1,14 @@
 .\objects\bsp_systick.o: ..\..\bsp\src\bsp_systick.c
 .\objects\bsp_systick.o: ..\..\bsp\inc\bsp.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
 .\objects\bsp_systick.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_systick.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\bsp_systick.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\bsp_systick.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\bsp_systick.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\bsp_systick.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\bsp_systick.o: ..\..\lib\arm\core\core_cmSimd.h
@@ -46,7 +46,7 @@
 .\objects\bsp_systick.o: ..\..\module\inc\oop.h
 .\objects\bsp_systick.o: ..\..\module\inc\error.h
 .\objects\bsp_systick.o: ..\..\module\inc\parson.h
-.\objects\bsp_systick.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\bsp_systick.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stddef.h
 .\objects\bsp_systick.o: ..\..\module\inc\malloc.h
 .\objects\bsp_systick.o: ..\..\os\include\FreeRTOS.h
 .\objects\bsp_systick.o: ..\..\os\include\FreeRTOSConfig.h
@@ -62,6 +62,7 @@
 .\objects\bsp_systick.o: ..\..\os\include\list.h
 .\objects\bsp_systick.o: ..\..\os\include\event_groups.h
 .\objects\bsp_systick.o: ..\..\os\include\timers.h
+.\objects\bsp_systick.o: ..\..\os\include\semphr.h
 .\objects\bsp_systick.o: ..\..\fs\ff.h
 .\objects\bsp_systick.o: ..\..\fs\integer.h
 .\objects\bsp_systick.o: ..\..\fs\ffconf.h

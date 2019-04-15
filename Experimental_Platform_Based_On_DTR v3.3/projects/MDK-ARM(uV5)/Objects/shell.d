@@ -1,16 +1,16 @@
 .\objects\shell.o: ..\..\module\src\shell.c
 .\objects\shell.o: ..\..\module\inc\shell.h
 .\objects\shell.o: ..\..\module\inc\driver.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\string.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\math.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdio.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdlib.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\string.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdarg.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\math.h
 .\objects\shell.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\shell.o: ..\..\lib\arm\core\core_cm4_bitband.h
 .\objects\shell.o: ..\..\lib\arm\lib\inc\stm32f4xx.h
 .\objects\shell.o: ..\..\lib\arm\core\core_cm4.h
-.\objects\shell.o: D:\MDK5\installation site\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\shell.o: E:\Keil MDK\MDK511_CORE\ARM\ARMCC\bin\..\include\stdint.h
 .\objects\shell.o: ..\..\lib\arm\core\core_cmInstr.h
 .\objects\shell.o: ..\..\lib\arm\core\core_cmFunc.h
 .\objects\shell.o: ..\..\lib\arm\core\core_cmSimd.h

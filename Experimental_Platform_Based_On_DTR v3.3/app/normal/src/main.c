@@ -116,7 +116,7 @@ int main()
 
 	xQueueWifi = xQueuecreate(8, sizeof(wifi_config_t));
 	xTimerWifiConnect = xTimercreate("Timer", 20000, pdFALSE, (void *) 1, vTimerCallback); 
-	xTimerTcpCheck = xTimercreate("Timer", 10000, pdFALSE, (void *) 2, vTimerCallback); 
+	xTimerTcpCheck = xTimercreate("Tmer", 10000, pdFALSE, (void *) 2, vTimerCallback); 
 	vTaskStartScheduler();                                  //开启任务调度
 
 	while(1) {
@@ -295,16 +295,13 @@ void wifi_task(void *pvParameters)
 	WM_MESSAGE pmsg;
 //	usr_c322_init();
 	init_wifi_queue(notify);
-	xTaskNotifyGive(WifiTask_Handler);
 	xTimerStart(xTimerWifiConnect, 100);
 	while(1) {
 		usr_c322_wifista_mqtt_check(uart.uart_2->pRx_buffer);
 		
 		memset(&notify, 0, sizeof(notify));
-		if(ulTaskNotifyTake(pdTRUE, 0) > 0)
-			xResult = xQueuePeek(xQueueWifi, (void *)&notify, (TickType_t)0);
-		else
-			xResult = xQueueReceive(xQueueWifi, (void *)&notify, (TickType_t)0);
+
+		xResult = xQueueReceive(xQueueWifi, (void *)&notify, (TickType_t)0);
 		if(xResult == pdPASS) {
 			memset(request, 0, sizeof(request));
 			switch (notify.setting.event) {
@@ -354,7 +351,8 @@ void wifi_task(void *pvParameters)
 					GUI_Exec();
 				}
 				else
-					xTaskNotifyGive(WifiTask_Handler);
+					if(errQUEUE_FULL == xQueueSendToFront(xQueueWifi, (const void *)(&notify), 50))
+						notify_show("操作无效", "请稍候");
 			break;
 			
 			case wifi_ping_check:
@@ -389,7 +387,8 @@ void wifi_task(void *pvParameters)
 						GUI_Exec();
 					}
 					else
-						xTaskNotifyGive(WifiTask_Handler);
+						if(errQUEUE_FULL == xQueueSendToFront(xQueueWifi, (const void *)(&notify), 50))
+							notify_show("操作无效", "请稍候");
 				}
 				else {
 					httpGetTimeFlag = flag_set;
