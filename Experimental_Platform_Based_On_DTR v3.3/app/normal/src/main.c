@@ -454,7 +454,7 @@ void wifi_task(void *pvParameters)
 				notify.http_notify.status = httpTeacherLoginCheck((char*)uart.uart_x->pRx_buffer);
 
 				uart.uart_x->rx_status = 0;
-				memset(uart.uart_x->pRx_buffer, 0, uart.uart_x->rx_buffer_len);
+				memset(uart.uart_x->pRx_buffer, 0,  uart.uart_x->rx_buffer_len);
 				pmsg.hWin = hSubExpWin;
 				pmsg.MsgId = WM_BUTTON_BEGIN_CB;
 				pmsg.Data.p = &notify;

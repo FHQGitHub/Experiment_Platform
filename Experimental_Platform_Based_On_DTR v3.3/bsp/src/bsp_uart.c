@@ -862,6 +862,7 @@ void USART3_IRQHandler(void)
 
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) {
 		res = USART_ReceiveData(USART3);
+		USART_SendData(USART1, res);
 		if(0 == (uart.uart_3->rx_status & (1 << 15))) {
 			if(times < uart.uart_3->rx_buffer_len) {
 				TIM_SetCounter(TIM7, 0);

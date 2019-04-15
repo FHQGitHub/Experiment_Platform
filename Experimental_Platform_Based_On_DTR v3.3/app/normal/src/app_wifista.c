@@ -85,7 +85,7 @@ wifiStatus usr_c322_wifista_HTTP_request(u8* request)
 	u8 p[200];
 	memset(p, 0, sizeof(p));
 	sprintf((char*)p, "GET %s\r\n", request);   
-	if(usr_c322_send_cmd(p, "successFlg", 200) == WIFI_OK)
+	if(usr_c322_send_cmd(p, "successFlg", 500) == WIFI_OK)
 		return WIFI_OK;
 	else if(usr_c322_send_cmd(p, "+ERR", 50) == WIFI_OK) {
 		usr_c322_send_cmd("AT+ENTM\r\n", "+OK", 20);
