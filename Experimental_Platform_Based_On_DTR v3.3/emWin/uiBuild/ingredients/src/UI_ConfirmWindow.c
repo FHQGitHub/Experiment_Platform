@@ -25,6 +25,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
         WM_HWIN hItem;
         int     NCode;
         int     Id;
+	wifi_config_t 	wifi_config;
         
         switch (pMsg->MsgId) {
         case WM_INIT_DIALOG:
@@ -72,9 +73,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 					notify_show("16041538", "成功签退");
                                 }
                                 else if(present_bar_status == ACTION_EXP_DETAIL) {
-                                       
-					expRoutineStateSwitch(present_list_status - 1, exp_submitted);
-                                        //menu_reconstruct_list_content(present_bar_status, present_list_status);
+					wifi_config.http_notify.event = http_submit_exp;
+					if(errQUEUE_FULL == xQueueSend(xQueueWifi, (const void *)(&wifi_config), 50))
+						notify_show(" 操作无效", "请稍后重试");
                                 }
                                 else if(present_bar_status == ACTION_EXP_SCORE) {
                                         ui_effect.hWin = hLogoutImage;

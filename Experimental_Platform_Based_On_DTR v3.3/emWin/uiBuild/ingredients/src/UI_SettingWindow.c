@@ -469,7 +469,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				break;
 			case WM_NOTIFICATION_RELEASED:
 				EDIT_GetText(hDevIdEdit, sys_config.dev_id, sizeof(sys_config.dev_id));
-				for(i = 0, str = sys_config.dev_id; i < 3; i++) {
+				for(i = 0, str = sys_config.dev_id; i < 3 && *str != NULL; i++) {
 					while(*str != '.')
 						str++;
 					str++;

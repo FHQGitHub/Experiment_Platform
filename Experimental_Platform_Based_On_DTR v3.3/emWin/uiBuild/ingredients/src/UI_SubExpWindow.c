@@ -330,9 +330,18 @@ static void _cbDialog(WM_MESSAGE * pMsg)
         break;
 		
 	case WM_BUTTON_QUESTION_CB:
+		ui_effect.status = effect_stop;
+		ui_effect.hWin = hFunctionImage3;
+		xTaskNotify( GuiTask_Handler,
+			     (uint32_t)(&ui_effect),
+			     eSetValueWithOverwrite
+		);
 		notify = (wifi_config_t *)pMsg->Data.p;
-                if(notify->http_notify.status == HTTP_OK) 
+                if(notify->http_notify.status == HTTP_OK) {
 			notify_show("提问成功", "请等待教师解答");
+//			routine.flags.flagQuestionSet = flag_set;
+//			menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
+		}
 		else if(notify->http_notify.status == HTTP_ERR)
 			notify_show("网络连接错误", "操作失败");
 		else if(notify->http_notify.status == HTTP_FALSE)
@@ -343,8 +352,10 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 	
 	case WM_BUTTON_SUBMIT_CB:
 		notify = (wifi_config_t *)pMsg->Data.p;
-                if(notify->http_notify.status == HTTP_OK) 
+                if(notify->http_notify.status == HTTP_OK) {
 			notify_show("提交成功", "请等待教师打分");
+			expRoutineStateSwitch(present_list_status - 1, exp_submitted);
+		}
 		else if(notify->http_notify.status == HTTP_ERR)
 			notify_show("网络连接错误", "操作失败");
 		else if(notify->http_notify.status == HTTP_FALSE)
@@ -448,16 +459,9 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                              eSetValueWithOverwrite
                                 );
                         
-                                GUI_Delay(1000);
-                        
-                                ui_effect.hWin = hFunctionImage3;
-                                ui_effect.status = effect_stop;
-                                xTaskNotify( GuiTask_Handler,
-                                             (uint32_t)(&ui_effect),
-                                             eSetValueWithOverwrite
-                                );
-                                routine.flags.flagQuestionSet = flag_set;
-                                menu_reconstruct_list_content(present_bar_status, present_list_status, 1);
+                                wifi_config.http_notify.event = http_question_set;
+				if(errQUEUE_FULL == xQueueSend(xQueueWifi, (const void *)(&wifi_config), 50))
+					notify_show(" 操作无效", "请稍后重试");
                         break;
                         }
 		break;  
