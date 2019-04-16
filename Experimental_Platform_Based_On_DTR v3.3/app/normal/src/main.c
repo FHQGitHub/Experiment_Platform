@@ -98,7 +98,7 @@ int main()
 {
 	bsp_Init();
 	local_db.init();
-//	dbSettingParamInit();
+	dbSettingParamInit();
 	expGetRoutineContents();
 	ui_init();
 	voiceInitCheck();
@@ -406,6 +406,11 @@ void wifi_task(void *pvParameters)
 				sprintf((char *)request, "https://%s/openApi/experiment/gateway/addNode.json?gatewayId=%s&nodeId=%s", http_wifista_ip, sys_config.gateway_id, sys_config.dev_id);
 				usr_c322_wifista_HTTP_request(request);
 				httpRetVal = httpSubmitDevId((char*)uart.uart_x->pRx_buffer);
+				if(HTTP_OK == httpRetVal) {
+					notify_show("节点上报成功", "请等待同步");
+					local_db.write(DB_FILE_DEVID, sys_config.dev_id);
+					local_db.write(DB_FILE_GATEWAYID, sys_config.gateway_id);
+				}
 				if(HTTP_NO_DATA == httpRetVal)
 					notify_show("网络连接错误", "节点上传失败");
 				else if(HTTP_FALSE == httpRetVal)
@@ -469,6 +474,7 @@ void wifi_task(void *pvParameters)
 				if(routine.appointed_expid != -1)
 					snprintf((char *)(request + strlen(request)), sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
 				else;
+				uart.oop(uart.uart_1).write_line("%s", request);	
 				usr_c322_wifista_HTTP_request(request);
 				notify.http_notify.status = httpStudentStartExp((char*)uart.uart_x->pRx_buffer);
 				

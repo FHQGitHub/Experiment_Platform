@@ -53,8 +53,8 @@ void bsp_Init()
 	EXTIX_Init();
 	SPI_FLASH_Init();
 
-	uart.init(UART_1 | UART_5, 9600);
-	uart.init(UART_2 | UART_3 | UART_4, 115200);
+	uart.init(UART_5, 9600);
+	uart.init(UART_1 | UART_2 | UART_3 | UART_4, 115200);
 	timer.oop(timer.timer_6).install_handler(timer6CallBack);
 	timer.init(TIMER_6 | TIMER_7, MS(50));
 	lcd.init();

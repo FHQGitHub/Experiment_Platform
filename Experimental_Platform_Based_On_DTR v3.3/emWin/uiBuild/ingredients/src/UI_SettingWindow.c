@@ -155,11 +155,10 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 	u8 		volumeString[20];
 	u8 		p[50];
 	u8		*str;
-	char 		db_write_buf[50];
+	char 		db_write_buf[30];
 	wifi_config_t 	*notify = NULL;
 	epoch_dev_t 	*epoch_notify = NULL;
 	wifi_config_t 	wifi_config;
-	char db_read_buf[100];
 	
 	memset(&wifi_config, 0, sizeof(wifi_config));
 
@@ -327,14 +326,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		EDIT_SetTextColor(hItem, EDIT_CI_ENABLED, 0x00868380);
 		EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
 		EDIT_SetMaxLen(hItem, 100);
-		EDIT_SetText(hItem, "100.2.254.1.1");
-		EDIT_GetText(hDevIdEdit, sys_config.dev_id, sizeof(sys_config.dev_id));
-		for(i = 0, str = sys_config.dev_id; i < 3; i++) {
-			while(*str != '.')
-				str++;
-			str++;
-		}
-		strncpy(sys_config.gateway_id, sys_config.dev_id, str - sys_config.dev_id + 1);
+		EDIT_SetText(hItem, sys_config.dev_id);
 		WM_SetFocus(hItem);
 		WM_HideWindow(hItem);
 
@@ -435,12 +427,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 			case WM_NOTIFICATION_RELEASED:
 				if(sys_config.voice == on) {
 					sys_config.voice = off; 
-					dbParamSetVoice(0);
+					local_db.write(DB_FILE_VOICE, "voice:off");
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_off);
 					bsp_delay_ms(100);
 				} else {
 					sys_config.voice = on;
-					dbParamSetVoice(1);
+					local_db.write(DB_FILE_VOICE, "voice:on");
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_on);
 					bsp_delay_ms(100);
 				}
@@ -457,11 +449,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 			case WM_NOTIFICATION_RELEASED:
 				if(sys_config.mux == on) {
 					sys_config.mux = off;
+					local_db.write(DB_FILE_MUX, "mux:off");
 					BUTTON_SetBitmap(hMuxButton, BUTTON_BI_PRESSED, &bmswitch_off);
 					
 				} else {
-					
 					sys_config.mux = on;
+					local_db.write(DB_FILE_MUX, "mux:on");
 					BUTTON_SetBitmap(hMuxButton, BUTTON_BI_PRESSED, &bmswitch_on);
 				}
 				break;

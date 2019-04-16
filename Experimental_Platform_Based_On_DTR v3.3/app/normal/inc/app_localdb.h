@@ -10,9 +10,15 @@
 #define LOCALDB_USER_PATH 			"0:local/user"
 
 #define DB_FILE_INFO 				"0:local/info/info.bin"
-#define DB_FILE_SETTING 			"0:local/setting/setting.bin"
+#define DB_FILE_VOICE 				"0:local/setting/voice.bin"
+#define DB_FILE_MUX				"0:local/setting/mux.bin"
+#define DB_FILE_VOLUME 				"0:local/setting/volume.bin"
+#define DB_FILE_DEVID 				"0:local/setting/devId.bin"
+#define DB_FILE_GATEWAYID			"0:local/setting/gatewayId.bin"
+#define DB_FILE_EPOCH_LIST 			"0:local/setting/epochList.bin"
 #define DB_FILE_RECORD			 	"0:local/record/record.bin"
 #define DB_FILE_LOG			 	"0:local/user/log.bin"
+
 
 typedef struct volume_info {
 	unsigned char state;

@@ -16,8 +16,8 @@
 
 #define FLASH_SECTOR_SIZE		512					/* 扇区大小：4096字节 */
 #define	FLASH_BLOCK_SIZE		8					/* 每个Block拥有8个扇区 */
-#define FLASH_SECTOR_COUNT	        (8 * 1024 * 1024 / FLASH_SECTOR_SIZE)	/* 扇区数 */
-#define FLASH_SECTOR_OFFSET	        (8 * 1024 * 1024 / FLASH_SECTOR_SIZE)
+#define FLASH_SECTOR_COUNT	        (6 * 1024 * 1024 / FLASH_SECTOR_SIZE)	/* 扇区数 */
+#define FLASH_SECTOR_OFFSET	        (10 * 1024 * 1024 / FLASH_SECTOR_SIZE)
 
 //#define SPI_FLASH_PageSize            4096
 #define SPI_FLASH_PageSize              256
