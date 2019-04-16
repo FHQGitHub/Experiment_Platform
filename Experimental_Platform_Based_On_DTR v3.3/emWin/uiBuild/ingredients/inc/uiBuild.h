@@ -19,6 +19,7 @@
 #include "UI_Logic.h"
 #include "UI_PushButton.h"
 #include "UI_SpecializedSkin.h"
+#include "UI_Console.h"
 #include "WIDGET_keyboard.h"
                            
 #define ACTION_LOGIN            1

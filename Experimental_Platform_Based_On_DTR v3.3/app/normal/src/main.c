@@ -13,7 +13,7 @@
 #define MENU_TASK_PRIO	        3
 
 //任务堆栈大小
-#define START_STK_SIZE 		128
+#define START_STK_SIZE 		512
 #define TIMER_STK_SIZE 		1024
 #define TOUCH_STK_SIZE 		1024
 #define GUI_STK_SIZE 		1024
@@ -94,19 +94,88 @@ void init_wifi_queue(wifi_config_t wifi_config)
 			notify_show("操作无效", "请稍后");
 }
 
-int main()
+static void init0()
 {
+	int cnt = 0;
+	
 	bsp_Init();
-	local_db.init();
-	dbSettingParamInit();
+	GUI_Init();
+	console.init();
+	
+	console.print("> init local database...\r\n");
+	bsp_delay_ms(500);
+	if(local_db.init())
+		console.print("> init done !\r\n");
+	else {
+		console.print("> err: init fail !\r\n");
+		console.print("> please restart !\r\n");
+		while(1);
+	}
+	
+	bsp_delay_ms(500);
+	console.print("> loading system parameters...\r\n");
+	if(!dbSettingParamInit())
+		console.print("> load done !\r\n");
+	else {
+		console.print("> err: load fail !\r\n");
+		console.print("> please restart !\r\n");
+		while(1);
+	}
+	
+	bsp_delay_ms(500);
+	console.print("> init xfs5152CE <sound module>...\r\n");
+	if(voiceInitCheck()) {
+		sprintf((char *)volumeString, "[v%d][m52][s6]", 1);
+		voiceDispString(volumeString);
+		console.print("> init done !\r\n");
+	}
+	else {
+		console.print("> err: init fail !\r\n");
+		console.print("> please restart !\r\n");
+		while(1);
+	}
+	
+	bsp_delay_ms(500);
+	console.print("> init usr-c322 <wifi module>...\r\n");
+	if(usr_c322_init())
+		console.print("> init done !\r\n");
+	else {
+		console.print("> err: init fail !\r\n");
+		console.print("> please restart !\r\n");
+		while(1);
+	}
+	
+	console.print("> connect wifi automatically...");
+	while(bit_wifi_status != WIFI_OK && cnt < 20) {
+		++cnt;
+		bsp_delay_ms(500);
+		console.print(".");
+	}
+	console.print("\r\n");
+	if(20 == cnt)
+		console.print("> err: wifi connect fail !\r\n");
+	else
+		console.print("> wifi connect done !\r\n");
+	bsp_delay_ms(500);
+	console.print("> welcome !\r\n");
+	bsp_delay_ms(500);
+	bsp_delay_ms(500);
+	
 	expGetRoutineContents();
 	ui_init();
-	voiceInitCheck();
+	xQueueWifi = xQueuecreate(8, sizeof(wifi_config_t));
+	xTimerWifiConnect = xTimercreate("Timer", 20000, pdFALSE, (void *) 1, vTimerCallback); 
+	xTimerTcpCheck = xTimercreate("Tmer", 10000, pdFALSE, (void *) 2, vTimerCallback); 
 
-	sprintf((char *)volumeString, "[v%d][m52][s6]", 1);
-	voiceDispString(volumeString);
-	sys_config.voice = on;
 	voiceDispString(voiceWelcome);
+	
+}
+
+int main()
+{
+	
+	init0();
+	
 	xTaskCreate((TaskFunction_t )start_task,                //任务函数
 	            (const char*    )"start_task",                  //任务名称
 	            (uint16_t       )START_STK_SIZE,                //任务堆栈大小
@@ -114,9 +183,7 @@ int main()
 	            (UBaseType_t    )START_TASK_PRIO,               //任务优先级
 	            (TaskHandle_t*  )&StartTask_Handler);           //任务句柄
 
-	xQueueWifi = xQueuecreate(8, sizeof(wifi_config_t));
-	xTimerWifiConnect = xTimercreate("Timer", 20000, pdFALSE, (void *) 1, vTimerCallback); 
-	xTimerTcpCheck = xTimercreate("Tmer", 10000, pdFALSE, (void *) 2, vTimerCallback); 
+	
 	vTaskStartScheduler();                                  //开启任务调度
 
 	while(1) {
@@ -133,6 +200,7 @@ int main()
 **/
 void start_task(void *pvParameters)
 {
+	
 	taskENTER_CRITICAL();                                           //进入临界区
 
 	xTaskCreate((TaskFunction_t )timer_task,                        //任务函数
@@ -293,9 +361,7 @@ void wifi_task(void *pvParameters)
 	httpStatus httpRetVal;
 	
 	WM_MESSAGE pmsg;
-//	usr_c322_init();
-//	init_wifi_queue(notify);
-//	xTimerStart(xTimerWifiConnect, 100);
+
 	while(1) {
 		usr_c322_wifista_mqtt_check(uart.uart_2->pRx_buffer);
 		
@@ -474,7 +540,7 @@ void wifi_task(void *pvParameters)
 				if(routine.appointed_expid != -1)
 					snprintf((char *)(request + strlen(request)), sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
 				else;
-				uart.oop(uart.uart_1).write_line("%s", request);	
+				
 				usr_c322_wifista_HTTP_request(request);
 				notify.http_notify.status = httpStudentStartExp((char*)uart.uart_x->pRx_buffer);
 				
@@ -661,6 +727,7 @@ void wifi_task(void *pvParameters)
 		}
 		if(flag_set == wifiStateChangeFlag) {
 			if(notify.setting.event != wifi_connect_check) {
+				wifiStateChangeFlag = flag_reset;
 				if(bit_wifi_status == WIFI_ERR) {
 					notify.setting.event = wifi_connect_check;
 					notify.setting.status = WIFI_ERR;
@@ -675,7 +742,6 @@ void wifi_task(void *pvParameters)
 				else
 					init_wifi_queue(notify);
 			}
-			wifiStateChangeFlag = flag_reset;
 		} else;
 		vTaskDelay(15);
 	}
@@ -731,6 +797,7 @@ void scanner_task(void *pvParameters)
 
 void console_task(void *pvParameters)
 {
+	
 	while(1) {
 		vTaskDelay(25);
 	}
@@ -739,11 +806,7 @@ void console_task(void *pvParameters)
 
 void init_task(void *pvParameters)
 {
-	SPI_FLASH_BufferRead((u8 *)&dev_list, ADDR_SETTING_DATA, 1);
-	if(dev_list.number == 0xff)
-		dev_list.number = 0;
-	else
-		SPI_FLASH_BufferRead((u8 *)&dev_list, ADDR_SETTING_DATA, sizeof(dev_list));
+
 	while(1) {
 		vTaskDelay(30);
 	}

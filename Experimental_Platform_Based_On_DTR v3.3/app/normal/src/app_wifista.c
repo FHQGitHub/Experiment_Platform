@@ -38,7 +38,7 @@ wifiStatus usr_c322_init(void)
 {
 	u8 res, i = 0;
 	u8 p[75];
-	while(Nready && i < 3) { 		//µÈ´ýNreadyÒý½ÅÀ­µÍ
+	while(Nready && i < 3) { 		
 		bsp_delay_ms(1000);
 		i ++;
 	}

@@ -15,9 +15,7 @@ void usr_c322_at_response(u8 mode)
 	}
 }
 
-//str:期待的应答结果
-//返回值:0,没有得到期待的应答结果
-//    其他,期待应答结果的位置(str的位置)
+
 u8* usr_c322_check_cmd(u8 *str)
 {
 	char *strx = NULL;
@@ -28,14 +26,10 @@ u8* usr_c322_check_cmd(u8 *str)
 	return (u8*)strx;
 }
 
-//cmd:发送的命令字符串
-//ack:期待的应答结果,如果为空,则表示不需要等待应答
-//waittime:等待时间(单位:10ms)
-//返回值:0,发送成功(得到了期待的应答结果)
-//       1,发送失败
 wifiStatus usr_c322_send_cmd(u8 *cmd, u8 *ack, u16 waittime)
 {
 	uart.uart_x->rx_status = 0;
+	uart.oop(uart.uart_1).write_line("%s", cmd);	
 	uart.oop(uart.uart_x).write("%s", cmd);			//发送命令
 	if(ack && waittime) {					//需要等待应答
 		while(--waittime) {				//等待倒计时
@@ -54,9 +48,7 @@ wifiStatus usr_c322_send_cmd(u8 *cmd, u8 *ack, u16 waittime)
 	return WIFI_OK;
 }
 
-//退出透传模式
-//返回值:1,退出成功;
-//       0,退出失败
+
 wifiStatus usr_c322_quit_trans(void)
 {
 	u8 i;

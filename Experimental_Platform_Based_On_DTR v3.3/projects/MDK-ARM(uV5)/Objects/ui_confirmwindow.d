@@ -139,7 +139,14 @@
 .\objects\ui_confirmwindow.o: ..\..\emWin\uiBuild\core\inc\UI_Logic.h
 .\objects\ui_confirmwindow.o: ..\..\emWin\uiBuild\ingredients\inc\UI_PushButton.h
 .\objects\ui_confirmwindow.o: ..\..\emWin\uiBuild\ingredients\inc\UI_SpecializedSkin.h
+.\objects\ui_confirmwindow.o: ..\..\emWin\uiBuild\ingredients\inc\UI_Console.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\oneGUI.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\oneSpecializedSkin.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\oneConsole.h
 .\objects\ui_confirmwindow.o: ..\..\gui\inc\WIDGET_keyboard.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\WIDGET_slidewin.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\WIDGET_fs.h
+.\objects\ui_confirmwindow.o: ..\..\gui\inc\FONT_yahei.h
 .\objects\ui_confirmwindow.o: ..\..\app\normal\inc\app_voice.h
 .\objects\ui_confirmwindow.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\ui_confirmwindow.o: ..\..\app\normal\inc\app_exp_routine.h

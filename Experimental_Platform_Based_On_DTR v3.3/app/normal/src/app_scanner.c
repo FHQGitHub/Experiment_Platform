@@ -5,8 +5,7 @@ u8 QR_On_res[7] = {0x02, 0x00, 0x00, 0x01, 0x00, 0x33, 0x31};    //模块返回信息
 
 u8 u4_buf[200];
 
-//二维码扫描模块开启扫描函数
-//返回值：0,开启成功;1,接收数据错误;2,接收超时
+
 u8 QR_On(void)
 {
 	u8 res = 0;
@@ -14,11 +13,7 @@ u8 QR_On(void)
 	u8 strx = 0;
 	uart.uart_4->rx_status = 0;
 	uart.oop(uart.uart_4).write_raw(QR_On_key, 9);
-//	for(j=0;j<9;j++)//循环发送数据
-//	{
-//		 while(USART_GetFlagStatus(UART4,USART_FLAG_TC)==RESET); //循环发送,直到发送完毕
-//		USART_SendData(UART4,QR_On_key[j]);
-//	}
+
 	while(--waittime) {
 		bsp_delay_ms(10);
 		if(uart.uart_4->rx_status & 0x8000) { //等待扫描模块返回信息
@@ -46,7 +41,7 @@ u8 QR_RX_Data(u8 rxDat[], const u8 * check)
 	u8 res = 0;
 	u8 count = 0;
 	char *strx = 0;
-	while(!(uart.uart_4->rx_status & 0x8000) && count <= 5) { //等待扫描模块返回信息
+	while(!(uart.uart_4->rx_status & 0x8000) && count <= 5) { 
 		bsp_delay_ms(1000);
 		count ++;
 	}
@@ -57,7 +52,7 @@ u8 QR_RX_Data(u8 rxDat[], const u8 * check)
 	if(uart.uart_4->rx_status & 0x8000) {
 		memset(u4_buf, 0, 200);
 		memcpy(u4_buf, uart.uart_4->pRx_buffer, 200);
-		uart.uart_4->pRx_buffer[(uart.uart_4->rx_status & 0X3FFF) - 1] = 0; //添加结束符 去除末尾的0X0D以免影响请求
+		uart.uart_4->pRx_buffer[(uart.uart_4->rx_status & 0X3FFF) - 1] = 0; 
 		uart.uart_4->rx_status = 0;
 		strx = strstr((const char*)uart.uart_4->pRx_buffer, (const char *)check);
 		if(strx) {

@@ -6,7 +6,7 @@ void ui_init()
 #if GUI_WINSUPPORT
 	WM_SetCreateFlags(WM_CF_MEMDEV);
 #endif
-	GUI_Init();
+//	GUI_Init();
 	GUI_EnableAlpha(1);
 #if GUI_WINSUPPORT
 	WM_MULTIBUF_Enable(1);

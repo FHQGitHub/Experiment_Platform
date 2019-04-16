@@ -432,6 +432,8 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 					bsp_delay_ms(100);
 				} else {
 					sys_config.voice = on;
+					sprintf((char *)volumeString, "[v%d][m52][s6]", 1);
+					voiceDispString(volumeString);
 					local_db.write(DB_FILE_VOICE, "voice:on");
 					BUTTON_SetBitmap(hVoiceButton, BUTTON_BI_PRESSED, &bmswitch_on);
 					bsp_delay_ms(100);

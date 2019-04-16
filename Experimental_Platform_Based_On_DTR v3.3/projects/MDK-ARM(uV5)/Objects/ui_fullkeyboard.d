@@ -134,4 +134,11 @@
 .\objects\ui_fullkeyboard.o: ..\..\emWin\uiBuild\core\inc\UI_Logic.h
 .\objects\ui_fullkeyboard.o: ..\..\emWin\uiBuild\ingredients\inc\UI_PushButton.h
 .\objects\ui_fullkeyboard.o: ..\..\emWin\uiBuild\ingredients\inc\UI_SpecializedSkin.h
+.\objects\ui_fullkeyboard.o: ..\..\emWin\uiBuild\ingredients\inc\UI_Console.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\oneGUI.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\oneSpecializedSkin.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\oneConsole.h
 .\objects\ui_fullkeyboard.o: ..\..\gui\inc\WIDGET_keyboard.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\WIDGET_slidewin.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\WIDGET_fs.h
+.\objects\ui_fullkeyboard.o: ..\..\gui\inc\FONT_yahei.h

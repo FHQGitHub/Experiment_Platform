@@ -54,6 +54,7 @@
 ".\objects\ui_skinbutton.o"
 ".\objects\ui_connectwindow.o"
 ".\objects\ui_skinslider.o"
+".\objects\ui_console.o"
 ".\objects\ui_touch.o"
 ".\objects\ui_maintask.o"
 ".\objects\ui_logic.o"

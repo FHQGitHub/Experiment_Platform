@@ -139,7 +139,14 @@
 .\objects\bsp_exti.o: ..\..\emWin\uiBuild\core\inc\UI_Logic.h
 .\objects\bsp_exti.o: ..\..\emWin\uiBuild\ingredients\inc\UI_PushButton.h
 .\objects\bsp_exti.o: ..\..\emWin\uiBuild\ingredients\inc\UI_SpecializedSkin.h
+.\objects\bsp_exti.o: ..\..\emWin\uiBuild\ingredients\inc\UI_Console.h
+.\objects\bsp_exti.o: ..\..\gui\inc\oneGUI.h
+.\objects\bsp_exti.o: ..\..\gui\inc\oneSpecializedSkin.h
+.\objects\bsp_exti.o: ..\..\gui\inc\oneConsole.h
 .\objects\bsp_exti.o: ..\..\gui\inc\WIDGET_keyboard.h
+.\objects\bsp_exti.o: ..\..\gui\inc\WIDGET_slidewin.h
+.\objects\bsp_exti.o: ..\..\gui\inc\WIDGET_fs.h
+.\objects\bsp_exti.o: ..\..\gui\inc\FONT_yahei.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_voice.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\bsp_exti.o: ..\..\app\normal\inc\app_exp_routine.h

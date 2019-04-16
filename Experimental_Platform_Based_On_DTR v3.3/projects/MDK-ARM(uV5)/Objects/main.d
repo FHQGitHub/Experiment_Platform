@@ -139,7 +139,14 @@
 .\objects\main.o: ..\..\emWin\uiBuild\core\inc\UI_Logic.h
 .\objects\main.o: ..\..\emWin\uiBuild\ingredients\inc\UI_PushButton.h
 .\objects\main.o: ..\..\emWin\uiBuild\ingredients\inc\UI_SpecializedSkin.h
+.\objects\main.o: ..\..\emWin\uiBuild\ingredients\inc\UI_Console.h
+.\objects\main.o: ..\..\gui\inc\oneGUI.h
+.\objects\main.o: ..\..\gui\inc\oneSpecializedSkin.h
+.\objects\main.o: ..\..\gui\inc\oneConsole.h
 .\objects\main.o: ..\..\gui\inc\WIDGET_keyboard.h
+.\objects\main.o: ..\..\gui\inc\WIDGET_slidewin.h
+.\objects\main.o: ..\..\gui\inc\WIDGET_fs.h
+.\objects\main.o: ..\..\gui\inc\FONT_yahei.h
 .\objects\main.o: ..\..\app\normal\inc\app_voice.h
 .\objects\main.o: ..\..\app\normal\inc\app_wifi_common.h
 .\objects\main.o: ..\..\app\normal\inc\app_exp_routine.h
