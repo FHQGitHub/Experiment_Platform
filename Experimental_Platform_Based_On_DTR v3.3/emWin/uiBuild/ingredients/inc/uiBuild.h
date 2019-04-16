@@ -35,10 +35,12 @@
 #define WM_BUTTON_QUESTION_CB 			(WM_USER + 0x02) 
 #define WM_BUTTON_LOGOUT_CB 			(WM_USER + 0x03) 
 #define WM_BUTTON_SCORE_CB 				(WM_USER + 0x04) 
+#define WM_BUTTON_QUESTION_CB			(WM_USER + 0x05)
+#define WM_BUTTON_SUBMIT_CB			(WM_USER + 0x06)
 
-#define WM_WIFI_SCAN_CB 			(WM_USER + 0x05)
-#define WM_WIFI_CONNECT_CB			(WM_USER + 0x06)
-#define WM_RFID_MATCH_CB			(WM_USER + 0x07)
+#define WM_WIFI_SCAN_CB 			(WM_USER + 0x07)
+#define WM_WIFI_CONNECT_CB			(WM_USER + 0x08)
+#define WM_RFID_MATCH_CB			(WM_USER + 0x09)
 
 extern WM_HWIN hMainWin;
 extern WM_HWIN hSubExpWin;

@@ -1,7 +1,7 @@
 #ifndef _ERROR_H
 #define __ERROR_H
 
-#define 		WARNING_LEVEL										2
+#define 		WARNING_LEVEL										1
 
 
 #define 		NAMEOF(pThis)										(u32)(pThis->name)

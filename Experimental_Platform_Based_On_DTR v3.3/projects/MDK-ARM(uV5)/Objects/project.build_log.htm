@@ -4,59 +4,40 @@
 <h1>�Vision Build Log</h1>
 <h2>Project:</h2>
 E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\project.uvprojx
-Project File Date:  04/15/2019
+Project File Date:  04/16/2019
 
 <h2>Output:</h2>
 Build target 'v1.0'
-compiling app_wifista.c...
-..\..\app\normal\src\app_wifista.c(10): warning:  #188-D: enumerated type mixed with another type
-        wifiStatus tem = 0;
-..\..\app\normal\src\app_wifista.c(10): warning:  #177-D: variable "tem" was declared but never referenced
-        wifiStatus tem = 0;
-..\..\app\normal\src\app_wifista.c(39): warning:  #177-D: variable "res" was declared but never referenced
-        u8 res, i = 0;
-..\..\app\normal\src\app_wifista.c(97): warning:  #940-D: missing return statement at end of non-void function "usr_c322_wifista_HTTP_request"
-  }
-..\..\app\normal\src\app_wifista.c: 4 warnings, 0 errors
-linking...
-Program Size: Code=210076 RO-data=459928 RW-data=5508 ZI-data=198944  
-FromELF: creating hex file...
-".\Objects\project.axf" - 0 Error(s), 4 Warning(s).
-Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
-Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\JLinkSettings.ini"
-* JLink Info: Device "STM32F429ZG" selected (1024 KB flash, 192 KB RAM).
- 
-JLink info:
-------------
-DLL: V4.90 , compiled Jul 28 2014 10:35:20
-Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2016 11:15:54
-Hardware: V1.00
-Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash, RDDI 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F429ZG
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-multibyte character sequence
+compiling main.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\app\normal\src\main.c(73): warning:  #870-D: invalid multibyte character sequence
+                notify_show("队列清空失败", "请稍�?);
+..\..\app\normal\src\main.c(76): warning:  #870-D: invalid multibyte character sequence
+                notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(79): warning:  #870-D: invalid multibyte character sequence
+                notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(82): warning:  #870-D: invalid multibyte character sequence
+                notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(83): warning:  #188-D: enumerated type mixed with another type
+        wifi_config.setting.event = 0;
+..\..\app\normal\src\main.c(87): warning:  #870-D: invalid multibyte character sequence
+                notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(88): warning:  #188-D: enumerated type mixed with another type
+        wifi_config.http_notify.event = 0;
+..\..\app\normal\src\main.c(91): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(94): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(107): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
+        voiceDispString(volumeString);
+..\..\app\normal\src\main.c(212): warning:  #870-D: invalid multibyte character sequence
+                sprintf(pStrSysDate, "%d�?d�?d�?", system_time.year, system_time.month, system_time.day);
+..\..\app\normal\src\main.c(212): warning:  #870-D: invalid multibyte character sequence
+                sprintf(pStrSysDate, "%d�?d�?d�?", system_time.year, system_time.month, system_time.day);
+..\..\app\normal\src\main.c(212): warning:  #870-D: invalid multibyte character sequence
                 sprintf(pStrSysDate, "%d�?d�?d�?", system_time.year, system_time.month, system_time.day);
 ..\..\app\normal\src\main.c(220): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("时间校准失败", "请稍�?);
@@ -66,33 +47,49 @@ multibyte character sequence
         int bounce_cnt = 0;
 ..\..\app\normal\src\main.c(326): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(355): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(354): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(391): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(389): warning:  #870-D: invalid multibyte character sequence
                                                         notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(416): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(414): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("系统错误", "请稍�?);
-..\..\app\normal\src\main.c(431): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(429): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("系统错误", "请稍�?);
-..\..\app\normal\src\main.c(508): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\app\normal\src\main.c(467): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        snprintf((char *)(request + strlen(request)), sizeof(request), "&tClzId=%s", routine.class_id);
+..\..\app\normal\src\main.c(470): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        snprintf((char *)(request + strlen(request)), sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
+..\..\app\normal\src\main.c(488): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
+..\..\app\normal\src\main.c(491): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
+..\..\app\normal\src\main.c(510): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
+..\..\app\normal\src\main.c(513): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
+..\..\app\normal\src\main.c(531): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
+..\..\app\normal\src\main.c(534): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+                                        sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
+..\..\app\normal\src\main.c(549): warning:  #181-D: argument is incompatible with corresponding format string conversion
                                 sprintf((char *)request, "https://%s/openApi/experiment/signOut.json?id=%s&userId=%s", http_wifista_ip, sys_config.dev_id, routine.appointed_uid[0]);
-..\..\app\normal\src\main.c(548): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(589): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("系统错误", "请稍�?);
-..\..\app\normal\src\main.c(562): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(603): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("同步失败", "服务器登录超�?);
-..\..\app\normal\src\main.c(567): warning:  #870-D: invalid multibyte character sequence
-                                                        notify_show("队列清空失败", "请稍�?);
-..\..\app\normal\src\main.c(569): warning:  #870-D: invalid multibyte character sequence
-                                                notify_show("同步成功", "初始化成�?);
-..\..\app\normal\src\main.c(580): warning:  #870-D: invalid multibyte character sequence
-                                                        notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(583): warning:  #870-D: invalid multibyte character sequence
-                                                        notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(593): warning:  #870-D: invalid multibyte character sequence
-                                                        notify_show("队列清空失败", "请稍�?);
-..\..\app\normal\src\main.c(594): warning:  #870-D: invalid multibyte character sequence
-                                                notify_show("同步失败", "服务器连接超�?);
 ..\..\app\normal\src\main.c(608): warning:  #870-D: invalid multibyte character sequence
+                                                        notify_show("队列清空失败", "请稍�?);
+..\..\app\normal\src\main.c(610): warning:  #870-D: invalid multibyte character sequence
+                                                notify_show("同步成功", "初始化成�?);
+..\..\app\normal\src\main.c(621): warning:  #870-D: invalid multibyte character sequence
+                                                        notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(624): warning:  #870-D: invalid multibyte character sequence
+                                                        notify_show("操作无效", "请稍�?);
+..\..\app\normal\src\main.c(634): warning:  #870-D: invalid multibyte character sequence
+                                                        notify_show("队列清空失败", "请稍�?);
+..\..\app\normal\src\main.c(635): warning:  #870-D: invalid multibyte character sequence
+                                                notify_show("同步失败", "服务器连接超�?);
+..\..\app\normal\src\main.c(649): warning:  #870-D: invalid multibyte character sequence
                                                         notify_show("队列清空失败", "请稍�?);
 ..\..\app\normal\src\main.c(284): warning:  #177-D: variable "i" was declared but never referenced
         u8 i, j;
@@ -102,28 +99,27 @@ multibyte character sequence
         static u8 recheck_times = 0;
 ..\..\app\normal\src\main.c(289): warning:  #177-D: variable "ulNotifiedValue" was declared but never referenced
         uint32_t ulNotifiedValue;
-..\..\app\normal\src\main.c(666): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(707): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\main.c(672): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(713): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("扫描超时", "请重�?);
-..\..\app\normal\src\main.c(678): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(719): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("二维码错�?, "请重�?);
-..\..\app\normal\src\main.c(678): warning:  #870-D: invalid multibyte character sequence
+..\..\app\normal\src\main.c(719): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("二维码错�?, "请重�?);
-..\..\app\normal\src\main.c(719): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
+..\..\app\normal\src\main.c(760): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
                                         voiceDispString(epoch_dev_report);
-..\..\app\normal\src\main.c(709): warning:  #177-D: variable "pmsg" was declared but never referenced
+..\..\app\normal\src\main.c(750): warning:  #177-D: variable "pmsg" was declared but never referenced
         WM_MESSAGE pmsg;
-..\..\app\normal\src\main.c(766): warning:  #177-D: variable "pmsg" was declared but never referenced
+..\..\app\normal\src\main.c(807): warning:  #177-D: variable "pmsg" was declared but never referenced
         WM_MESSAGE pmsg;
-..\..\app\normal\src\main.c(767): warning:  #177-D: variable "ulTimerID" was declared but never referenced
+..\..\app\normal\src\main.c(808): warning:  #177-D: variable "ulTimerID" was declared but never referenced
         uint32_t ulTimerID;
-..\..\app\normal\src\main.c: 43 warnings, 0 errors
-compiling bsp_uart.c...
+..\..\app\normal\src\main.c: 53 warnings, 0 errors
 linking...
-Program Size: Code=210076 RO-data=459928 RW-data=5508 ZI-data=198944  
+Program Size: Code=211624 RO-data=460056 RW-data=5512 ZI-data=199004  
 FromELF: creating hex file...
-".\Objects\project.axf" - 0 Error(s), 43 Warning(s).
+".\Objects\project.axf" - 0 Error(s), 53 Warning(s).
 Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
 Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\JLinkSettings.ini"
 * JLink Info: Device "STM32F429ZG" selected (1024 KB flash, 192 KB RAM).
@@ -131,7 +127,7 @@ Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Plat
 JLink info:
 ------------
 DLL: V4.90 , compiled Jul 28 2014 10:35:20
-Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2016 11:15:54
+Firmware: J-Link OB-STM32F072-CortexM compiled May  4 2017 14:44:00
 Hardware: V1.00
 Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash, RDDI 
  
@@ -158,10 +154,70 @@ Erase Done.
 Programming Done.
 Verify OK.
 Application running ...
-0-D: missing return statement at end of non-void function "usr_c322_wifista_HTTP_request"
+Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
+Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\JLinkSettings.ini"
+* JLink Info: Device "STM32F429ZG" selected (1024 KB flash, 192 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.90 , compiled Jul 28 2014 10:35:20
+Firmware: J-Link OB-STM32F072-CortexM compiled May  4 2017 14:44:00
+Hardware: V1.00
+Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash, RDDI 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F429ZG
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\app\normal\src\app_wifi_common.c(138): warning:  #111-D: statement is unreachable
+        return WIFI_OK;
+..\..\app\normal\src\app_wifi_common.c(126): warning:  #177-D: variable "i" was declared but never referenced
+        u8 i;
+..\..\app\normal\src\app_wifi_common.c(164): warning:  #177-D: variable "res" was declared but never referenced
+        u8 res = 1;
+..\..\app\normal\src\app_wifi_common.c: 5 warnings, 0 errors
+compiling app_wifista.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\app\normal\src\app_wifista.c(10): warning:  #188-D: enumerated type mixed with another type
+        wifiStatus tem = 0;
+..\..\app\normal\src\app_wifista.c(10): warning:  #177-D: variable "tem" was declared but never referenced
+        wifiStatus tem = 0;
+..\..\app\normal\src\app_wifista.c(39): warning:  #177-D: variable "res" was declared but never referenced
+        u8 res, i = 0;
+..\..\app\normal\src\app_wifista.c(97): warning:  #940-D: missing return statement at end of non-void function "usr_c322_wifista_HTTP_request"
   }
-..\..\app\normal\src\app_wifista.c: 4 warnings, 0 errors
+..\..\app\normal\src\app_wifista.c: 6 warnings, 0 errors
 compiling app_exp_routine.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\app\normal\src\app_exp_routine.c(23): warning:  #870-D: invalid multibyte character sequence
           strcpy(routine.main_exp.sub_exp[1].subExpName, "病房优先呼叫�?);
 ..\..\app\normal\src\app_exp_routine.c(24): warning:  #870-D: invalid multibyte character sequence
@@ -182,8 +238,12 @@ compiling app_exp_routine.c...
           strcpy(routine.main_exp.sub_exp[2].subExpDetail, "�?�?4LS138�?�?4LS20设计");
 ..\..\app\normal\src\app_exp_routine.c(78): warning:  #1-D: last line of file ends without a newline
           
-..\..\app\normal\src\app_exp_routine.c: 10 warnings, 0 errors
+..\..\app\normal\src\app_exp_routine.c: 12 warnings, 0 errors
 compiling app_http.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\app\normal\src\app_http.c(108): warning:  #550-D: variable "exp_id" was set but never used
         int exp_id = NULL;
 ..\..\app\normal\src\app_http.c(113): warning:  #177-D: variable "exp_student_uid" was declared but never referenced
@@ -202,73 +262,44 @@ compiling app_http.c...
         int exp_module_2_id;
 ..\..\app\normal\src\app_http.c(132): warning:  #177-D: variable "exp_module_3_id" was declared but never referenced
         int exp_module_3_id;
-..\..\app\normal\src\app_http.c(231): warning:  #177-D: variable "user_id" was declared but never referenced
+..\..\app\normal\src\app_http.c(237): warning:  #177-D: variable "user_id" was declared but never referenced
         const char *user_id = NULL;
-..\..\app\normal\src\app_http.c(232): warning:  #177-D: variable "user_name" was declared but never referenced
+..\..\app\normal\src\app_http.c(238): warning:  #177-D: variable "user_name" was declared but never referenced
         const char *user_name = NULL;
-..\..\app\normal\src\app_http.c(233): warning:  #177-D: variable "user_eid" was declared but never referenced
+..\..\app\normal\src\app_http.c(239): warning:  #177-D: variable "user_eid" was declared but never referenced
         const char *user_eid = NULL;
-..\..\app\normal\src\app_http.c: 12 warnings, 0 errors
+..\..\app\normal\src\app_http.c: 14 warnings, 0 errors
 compiling app_epoch_match.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\app\normal\src\app_epoch_match.c: 2 warnings, 0 errors
 compiling app_mqtt.c...
-..\..\app\normal\src\app_mqtt.c(120): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\app\normal\src\app_mqtt.c(118): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
         len = strlen(dat);
-..\..\app\normal\src\app_mqtt.c(249): warning:  #177-D: variable "len" was declared but never referenced
+..\..\app\normal\src\app_mqtt.c(247): warning:  #177-D: variable "len" was declared but never referenced
         u8 len = 0;
 ..\..\app\normal\src\app_mqtt.c(328): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("操作无效", "请稍�?);
-..\..\app\normal\src\app_mqtt.c(397): warning:  #177-D: variable "i" was declared but never referenced
+..\..\app\normal\src\app_mqtt.c(431): warning:  #177-D: variable "i" was declared but never referenced
         u8 i;
-..\..\app\normal\src\app_mqtt.c: 4 warnings, 0 errors
-compiling bsp_systick.c...
-compiling bsp_uart.c...
-compiling bsp_timer.c...
-compiling bsp_lcd.c...
-..\..\bsp\src\bsp_lcd.c(88): warning:  #177-D: function "read_reg" was declared but never referenced
-  static u16 read_reg(u16 reg)
-..\..\bsp\src\bsp_lcd.c: 1 warning, 0 errors
-compiling bsp_ctiic.c...
-compiling bsp_gt9147.c...
-compiling bsp_touch.c...
-..\..\bsp\src\bsp_touch.c(36): warning:  #177-D: variable "temp" was declared but never referenced
-        uint16_t temp;
-..\..\bsp\src\bsp_touch.c(37): warning:  #550-D: variable "touch_sta_old" was set but never used
-        static uint8_t  touch_sta_old = 0;
-..\..\bsp\src\bsp_touch.c: 2 warnings, 0 errors
-compiling bsp_spi_flash.c...
-compiling bsp_stmflash.c...
+..\..\app\normal\src\app_mqtt.c: 6 warnings, 0 errors
 compiling bsp_exti.c...
-compiling bsp.c...
-compiling bsp_lp_rcc.c...
-compiling bsp_spi.c...
-compiling bsp_rc522.c...
-..\..\bsp\src\bsp_rc522.c(167): warning:  #177-D: variable "i" was declared but never referenced
-        u8   i, ucComMF522Buf[MAXRLEN];
-..\..\bsp\src\bsp_rc522.c(254): warning:  #550-D: variable "status" was set but never used
-        u8   status;
-..\..\bsp\src\bsp_rc522.c(610): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
-                                                        if(!PcdWrite(authentify_block, passwd_buf))
-..\..\bsp\src\bsp_rc522.c(633): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const u8 *"
-                                                        if(!PcdWrite(authentify_block, passwd_buf))
-..\..\bsp\src\bsp_rc522.c(666): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-                if(!PcdAnticoll(serial_buf)) {
-..\..\bsp\src\bsp_rc522.c(674): warning:  #940-D: missing return statement at end of non-void function "rc522_get_serial_number"
-  }
-..\..\bsp\src\bsp_rc522.c(662): warning:  #177-D: variable "status" was declared but never referenced
-        int status = 0;
-..\..\bsp\src\bsp_rc522.c(696): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-                                        if(!PcdRead(block_number, buf)) {
-..\..\bsp\src\bsp_rc522.c(746): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const u8 *"
-                                                if(!PcdWrite(block_number, buf)) {
-..\..\bsp\src\bsp_rc522.c(748): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
-                                                        if(!strncmp(buf, write_buf, 16))
-..\..\bsp\src\bsp_rc522.c(765): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const u8 *"
-                                                if(!PcdWrite(block_number, buf)) {
-..\..\bsp\src\bsp_rc522.c(767): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
-                                                        if(!strncmp(buf, write_buf, 16))
-..\..\bsp\src\bsp_rc522.c: 12 warnings, 0 errors
-compiling error.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\bsp\src\bsp_exti.c: 2 warnings, 0 errors
 compiling UI_MainWindow.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_MainWindow.c(246): warning:  #870-D: invalid multibyte character sequence
                 GUI_DispStringAt("\"深入理解计算机系�?\"", 479, 432);
 ..\..\emWin\uiBuild\ingredients\src\UI_MainWindow.c(261): warning:  #870-D: invalid multibyte character sequence
@@ -289,84 +320,122 @@ compiling UI_MainWindow.c...
         GUI_DispStringAt("\"深入理解计算机系�?\"", 479, 432);
 ..\..\emWin\uiBuild\ingredients\src\UI_MainWindow.c(341): warning:  #550-D: variable "hOldWin" was set but never used
         WM_HWIN hWin, hOldWin;
-..\..\emWin\uiBuild\ingredients\src\UI_MainWindow.c: 10 warnings, 0 errors
+..\..\emWin\uiBuild\ingredients\src\UI_MainWindow.c: 12 warnings, 0 errors
 compiling UI_SubExpWindow.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(74): warning:  #870-D: invalid multibyte character sequence
         BUTTON_SetText(hFunctionButton1, "开始实�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(130): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(131): warning:  #870-D: invalid multibyte character sequence
                   LISTVIEW_SetItemText(hItem, 0, 0, "已签�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(257): warning:  #870-D: invalid multibyte character sequence
+                                        notify_show("操作无效", "请稍�?);
 ..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(260): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("操作无效", "请稍�?);
 ..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(263): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("操作无效", "请稍�?);
 ..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(266): warning:  #870-D: invalid multibyte character sequence
                                         notify_show("操作无效", "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(269): warning:  #870-D: invalid multibyte character sequence
-                                        notify_show("操作无效", "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(309): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(304): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("ERROR 404", "服务器响应错�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(306): warning:  #870-D: invalid multibyte character sequence
                         notify_show("参数错误", "请检查您的凭�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(311): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(308): warning:  #870-D: invalid multibyte character sequence
                         notify_show("系统错误", "请重�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(332): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(329): warning:  #870-D: invalid multibyte character sequence
                         notify_show("系统错误", "请重�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(357): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(335): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("提问成功", "请等待教师解�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(341): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("系统错误", "请重�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(347): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("提交成功", "请等待教师打�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(353): warning:  #870-D: invalid multibyte character sequence
+                        notify_show("系统错误", "请重�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(378): warning:  #870-D: invalid multibyte character sequence
                                                         notify_show("当前无在线人�?, "签退失败");
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(360): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(381): warning:  #870-D: invalid multibyte character sequence
                                                                   TEXT_SetText(hConfirmText1, "实验进程未结�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(445): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(402): warning:  #870-D: invalid multibyte character sequence
+                                                        notify_show("操作无效", "请稍�?);
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(473): warning:  #870-D: invalid multibyte character sequence
                                           TEXT_SetText(hConfirmText1, "仍有未评分实�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(106): warning:  #177-D: variable "ulValue" was declared but never referenced
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(105): warning:  #177-D: variable "p" was declared but never referenced
+        char            p[50];
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(107): warning:  #177-D: variable "ulValue" was declared but never referenced
           uint32_t      ulValue;
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(107): warning:  #177-D: variable "xResult" was declared but never referenced
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c(108): warning:  #177-D: variable "xResult" was declared but never referenced
         BaseType_t      xResult;
-..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c: 14 warnings, 0 errors
+..\..\emWin\uiBuild\ingredients\src\UI_SubExpWindow.c: 23 warnings, 0 errors
 compiling UI_ConfirmWindow.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\emWin\uiBuild\ingredients\src\UI_ConfirmWindow.c: 2 warnings, 0 errors
 compiling UI_Keyboard.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_Keyboard.c(299): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("正在操作�?, "请稍�?);
 ..\..\emWin\uiBuild\ingredients\src\UI_Keyboard.c(299): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("正在操作�?, "请稍�?);
 ..\..\emWin\uiBuild\ingredients\src\UI_Keyboard.c(301): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("操作无效", "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_Keyboard.c: 3 warnings, 0 errors
+..\..\emWin\uiBuild\ingredients\src\UI_Keyboard.c: 5 warnings, 0 errors
 compiling UI_SettingWindow.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(107): warning:  #870-D: invalid multibyte character sequence
         BUTTON_SetText(hAdminButton, "管理员入�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(265): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(269): warning:  #870-D: invalid multibyte character sequence
                 TEXT_SetText(hItem, "声音开�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(464): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(471): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "u8 *"
+                                for(i = 0, str = sys_config.dev_id; i < 3; i++) {
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(476): warning:  #42-D: operand types are incompatible ("u8 *" and "char *")
+                                strncpy(sys_config.gateway_id, sys_config.dev_id, str - sys_config.dev_id + 1);
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(476): warning:  #993-D: subtraction of pointer types "u8 *" and "char *" is nonstandard
+                                strncpy(sys_config.gateway_id, sys_config.dev_id, str - sys_config.dev_id + 1);
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(478): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("节点信息上传�?, "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(464): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(478): warning:  #870-D: invalid multibyte character sequence
                                 notify_show("节点信息上传�?, "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(466): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(480): warning:  #870-D: invalid multibyte character sequence
                                         notify_show(" 操作无效", "请稍后重�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(487): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(501): warning:  #870-D: invalid multibyte character sequence
                                 LISTVIEW_SetItemText(hConnectList, 1, 0, "加密状�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(489): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(503): warning:  #870-D: invalid multibyte character sequence
                                 LISTVIEW_SetItemText(hConnectList, 2, 0, "WIFI状�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(521): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(535): warning:  #870-D: invalid multibyte character sequence
                                 BUTTON_SetText(hScanButton, "开始匹�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(555): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(569): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("操作无效", "请稍�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(562): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(576): warning:  #870-D: invalid multibyte character sequence
                                 } else if(strstr("开始匹�?, (char *)p)) {
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(620): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(636): warning:  #870-D: invalid multibyte character sequence
                                         TEXT_SetText(hConnectPromptText2, "加密状�?);
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(662): warning:  #870-D: invalid multibyte character sequence
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(678): warning:  #870-D: invalid multibyte character sequence
                                 } else if(strstr("开始匹�?", (char *)p)) {
 ..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(153): warning:  #177-D: variable "j" was declared but never referenced
         int             i, j;
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(158): warning:  #177-D: variable "epoch_notify" was declared but never referenced
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(158): warning:  #177-D: variable "db_write_buf" was declared but never referenced
+        char            db_write_buf[50];
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(160): warning:  #177-D: variable "epoch_notify" was declared but never referenced
         epoch_dev_t     *epoch_notify = NULL;
-..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c: 14 warnings, 0 errors
-compiling UI_NotifyWindow.c...
-compiling UI_FullKeyboard.c...
-compiling UI_FullKeyboardPage.c...
-compiling UI_SkinButton.c...
-..\..\emWin\uiBuild\ingredients\src\UI_SkinButton.c(36): warning:  #177-D: variable "WM_GET_PARENT" was declared but never referenced
-  static WM_HWIN (*WM_GET_PARENT[])(WM_HWIN) = {WM_GetParent1C,WM_GetParent2C,WM_GetParent3C,WM_GetParent4C,WM_GetParent5C,WM_GetParent6C,WM_GetParent7C,WM_GetParent8C};
-..\..\emWin\uiBuild\ingredients\src\UI_SkinButton.c: 1 warning, 0 errors
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c(162): warning:  #177-D: variable "db_read_buf" was declared but never referenced
+        char db_read_buf[100];
+..\..\emWin\uiBuild\ingredients\src\UI_SettingWindow.c: 21 warnings, 0 errors
 compiling UI_ConnectWindow.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_ConnectWindow.c(58): warning:  #870-D: invalid multibyte character sequence
         TEXT_SetText(hItem, "加密状�?");
 ..\..\emWin\uiBuild\ingredients\src\UI_ConnectWindow.c(107): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *"
@@ -377,14 +446,52 @@ compiling UI_ConnectWindow.c...
                         else if(strstr("开始匹�?, (char *)p)) {
 ..\..\emWin\uiBuild\ingredients\src\UI_ConnectWindow.c(150): warning:  #870-D: invalid multibyte character sequence
                                                 notify_show("设备列表已满", "请删除某个设�?);
-..\..\emWin\uiBuild\ingredients\src\UI_ConnectWindow.c: 5 warnings, 0 errors
-compiling UI_SkinSlider.c...
-..\..\emWin\uiBuild\ingredients\src\UI_SkinSlider.c(39): warning:  #177-D: variable "WM_GET_PARENT" was declared but never referenced
-  static WM_HWIN (*WM_GET_PARENT[])(WM_HWIN) = {WM_GetParent1C, WM_GetParent2C, WM_GetParent3C, WM_GetParent4C, WM_GetParent5C, WM_GetParent6C, WM_GetParent7C, WM_GetParent8C};
-..\..\emWin\uiBuild\ingredients\src\UI_SkinSlider.c: 1 warning, 0 errors
-compiling UI_Touch.c...
-compiling UI_MainTask.c...
+..\..\emWin\uiBuild\ingredients\src\UI_ConnectWindow.c: 7 warnings, 0 errors
+linking...
+Program Size: Code=211604 RO-data=460056 RW-data=5512 ZI-data=199004  
+FromELF: creating hex file...
+".\Objects\project.axf" - 0 Error(s), 181 Warning(s).
+Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
+Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\JLinkSettings.ini"
+* JLink Info: Device "STM32F429ZG" selected (1024 KB flash, 192 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.90 , compiled Jul 28 2014 10:35:20
+Firmware: J-Link OB-STM32F072-CortexM compiled May  4 2017 14:44:00
+Hardware: V1.00
+Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash, RDDI 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F429ZG
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+SER + 0x06)
+..\..\emWin\uiBuild\core\src\UI_Touch.c: 2 warnings, 0 errors
 compiling UI_Logic.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\core\src\UI_Logic.c(30): warning:  #177-D: variable "i" was declared but never referenced
         int i;
 ..\..\emWin\uiBuild\core\src\UI_Logic.c(141): warning:  #177-D: variable "i" was declared but never referenced
@@ -449,101 +556,48 @@ compiling UI_Logic.c...
         menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)"开发团�?      Hdu-Microchip-Lab",       element_visible);
 ..\..\emWin\uiBuild\core\src\UI_Logic.c(114): warning:  #177-D: function "bar_reset" was declared but never referenced
   static void bar_reset()
-..\..\emWin\uiBuild\core\src\UI_Logic.c: 32 warnings, 0 errors
+..\..\emWin\uiBuild\core\src\UI_Logic.c: 34 warnings, 0 errors
+".\Objects\project.axf" - 7 Error(s), 216 Warning(s).
+Target not created
+Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\Objects\project.axf'
+Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\Objects\project.axf'
+Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\Objects\project.axf'
+     menu_list_element_attach(3, 2, hLogoutButton, element_button, (void *)"退�?, element_invisible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(525): warning:  #870-D: invalid multibyte character sequence
+        menu_list_element_attach(3, 3, hExpSubTitle, element_text, (void *)"请教师验证身�?, element_visible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(528): warning:  #870-D: invalid multibyte character sequence
+        menu_list_element_attach(3, 3, hLogoutButton, element_button, (void *)"退�?, element_invisible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(553): warning:  #870-D: invalid multibyte character sequence
+        menu_list_element_attach(4, 3, hInfoText1, element_text, (void *)"版本�?         IIEES v1.0 2019.1",      element_visible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(554): warning:  #870-D: invalid multibyte character sequence
+        menu_list_element_attach(4, 3, hInfoText2, element_text, (void *)"处理�?         STM32F429ZGT6",          element_visible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(559): warning:  #870-D: invalid multibyte character sequence
+        menu_list_element_attach(4, 3, hInfoText7, element_text, (void *)"开发团�?      Hdu-Microchip-Lab",       element_visible);
+..\..\emWin\uiBuild\core\src\UI_Logic.c(114): warning:  #177-D: function "bar_reset" was declared but never referenced
+  static void bar_reset()
+..\..\emWin\uiBuild\core\src\UI_Logic.c: 34 warnings, 0 errors
 compiling UI_Effect.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
+..\..\emWin\uiBuild\core\src\UI_Effect.c: 2 warnings, 0 errors
 compiling UI_pushButton.c...
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(38): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_QUESTION_CB" (declared at line 35)
+  #define WM_BUTTON_QUESTION_CB                 (WM_USER + 0x05)
+..\..\emWin\uiBuild\ingredients\inc\uiBuild.h(39): warning:  #47-D: incompatible redefinition of macro "WM_BUTTON_SUBMIT_CB" (declared at line 34)
+  #define WM_BUTTON_SUBMIT_CB                   (WM_USER + 0x06)
 ..\..\emWin\uiBuild\ingredients\src\UI_pushButton.c(37): warning:  #177-D: variable "i" was declared but never referenced
         int i;
-..\..\emWin\uiBuild\ingredients\src\UI_pushButton.c: 1 warning, 0 errors
-compiling GUIDRV_Template.c...
-".\Objects\project.axf" - 1 Error(s), 173 Warning(s).
+..\..\emWin\uiBuild\ingredients\src\UI_pushButton.c: 3 warnings, 0 errors
+".\Objects\project.axf" - 5 Error(s), 232 Warning(s).
 Target not created
-(37): warning:  #177-D: variable "i" was declared but never referenced
-        int i;
-..\..\emWin\uiBuild\ingredients\src\UI_pushButton.c: 1 warning, 0 errors
-compiling buttom_bar.c...
-compiling hdu_logo.c...
-compiling hdu_pic.c...
-compiling rect_bar.c...
-compiling rect_sublist.c...
-compiling right_side_bar.c...
-compiling question.c...
-compiling submit.c...
-compiling exp_start.c...
-compiling logout.c...
-compiling finish.c...
-compiling unfinished.c...
-compiling waiting.c...
-compiling key1_up.c...
-compiling key2_up.c...
-compiling key1_down.c...
-compiling key2_down.c...
-compiling switch_on.c...
-compiling switch_off.c...
-compiling unikeyUp.c...
-compiling unikeyDown.c...
-compiling keyType2Down.c...
-compiling keyType2Up.c...
-compiling wifi.c...
-compiling wifi_off.c...
-compiling sliderThumb.c...
-compiling GUI_X_Touch.c...
-compiling GUIDRV_Template.c...
-compiling LCDConf_FlexColor_Template.c...
-compiling GUIConf.c...
-compiling GUI_X_OS.c...
-assembling startup_stm32f429xx.s...
-compiling system_stm32f4xx.c...
-compiling misc.c...
-compiling stm32f4xx_exti.c...
-compiling stm32f4xx_flash.c...
-compiling stm32f4xx_flash_ramfunc.c...
-compiling stm32f4xx_gpio.c...
-compiling stm32f4xx_i2c.c...
-compiling stm32f4xx_rcc.c...
-compiling stm32f4xx_rng.c...
-compiling stm32f4xx_rtc.c...
-compiling stm32f4xx_sdio.c...
-compiling stm32f4xx_spi.c...
-compiling stm32f4xx_syscfg.c...
-compiling stm32f4xx_tim.c...
-compiling stm32f4xx_usart.c...
-compiling stm32f4xx_fmc.c...
-compiling stm32f4xx_it.c...
-linking...
-Program Size: Code=210512 RO-data=459928 RW-data=5508 ZI-data=198752  
-FromELF: creating hex file...
-".\Objects\project.axf" - 0 Error(s), 173 Warning(s).
-Load "E:\\Projects\\Git\\Experiment_Platform\\Experimental_Platform_Based_On_DTR v3.3\\projects\\MDK-ARM(uV5)\\Objects\\project.axf" 
-Set JLink Project File to "E:\Projects\Git\Experiment_Platform\Experimental_Platform_Based_On_DTR v3.3\projects\MDK-ARM(uV5)\JLinkSettings.ini"
-* JLink Info: Device "STM32F429ZG" selected (1024 KB flash, 192 KB RAM).
- 
-JLink info:
-------------
-DLL: V4.90 , compiled Jul 28 2014 10:35:20
-Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2016 11:15:54
-Hardware: V1.00
-Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash, RDDI 
- 
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found SWD-DP with ID 0x2BA01477
-* JLink Info: Found Cortex-M4 r0p1, Little endian.
-* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: TPIU fitted.
-* JLink Info: ETM fitted.
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: STM32F429ZG
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 1, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.

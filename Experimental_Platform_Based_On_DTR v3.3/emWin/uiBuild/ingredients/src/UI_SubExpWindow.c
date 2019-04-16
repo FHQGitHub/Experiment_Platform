@@ -102,6 +102,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
         int NCode;
         int Id;
         int i;
+	char		p[50];
 	WM_HWIN      	hItem;
         uint32_t 	ulValue;
 	BaseType_t 	xResult;
@@ -199,15 +200,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                 TEXT_SetTextColor(hItem, 0x00868380);
                 TEXT_SetText(hItem, "实验得分");
                 WM_HideWindow(hItem);
-                WM_HideWindow(hItem);
                 
                 hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_QUEUE);
                 hQueueText = hItem;
                 TEXT_SetFont(hItem,  &YaHei_36_Font);
                 TEXT_SetTextColor(hItem, 0x00868380);
-                TEXT_SetText(hItem, "等待人数:2");
                 TEXT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
-                WM_HideWindow(hItem);
                 WM_HideWindow(hItem);
                 
                 hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_SCORE);
@@ -218,7 +216,6 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                 EDIT_SetMaxLen(hItem, 100);
                 WM_SetFocus(hItem);
                 EDIT_SetText(hItem, "");
-                WM_HideWindow(hItem);
                 WM_HideWindow(hItem);
 
                 hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_BEGIN);
@@ -293,7 +290,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                         break;
 			
 			case http_student_start_exp :
-                                //
+                                expRoutineStateSwitch(present_list_status - 1, exp_lasting);
                         break;
 				
                         default :
@@ -304,7 +301,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                         
                 }
                 else if(notify->http_notify.status == HTTP_NO_DATA) 
-			notify_show("网络连接错误", "身份验证失败");
+			notify_show("ERROR 404", "服务器响应错误");
                 else if(notify->http_notify.status == HTTP_FALSE) 
 			notify_show("参数错误", "请检查您的凭证");
 		else if(notify->http_notify.status == HTTP_ERR) 
@@ -331,6 +328,30 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		else if(notify->http_notify.status == HTTP_ERR) 
 			notify_show("系统错误", "请重试");
         break;
+		
+	case WM_BUTTON_QUESTION_CB:
+		notify = (wifi_config_t *)pMsg->Data.p;
+                if(notify->http_notify.status == HTTP_OK) 
+			notify_show("提问成功", "请等待教师解答");
+		else if(notify->http_notify.status == HTTP_ERR)
+			notify_show("网络连接错误", "操作失败");
+		else if(notify->http_notify.status == HTTP_FALSE)
+			notify_show("请求失败", "操作失败");
+		else if(notify->http_notify.status == HTTP_ERR) 
+			notify_show("系统错误", "请重试");
+	break;
+	
+	case WM_BUTTON_SUBMIT_CB:
+		notify = (wifi_config_t *)pMsg->Data.p;
+                if(notify->http_notify.status == HTTP_OK) 
+			notify_show("提交成功", "请等待教师打分");
+		else if(notify->http_notify.status == HTTP_ERR)
+			notify_show("网络连接错误", "操作失败");
+		else if(notify->http_notify.status == HTTP_FALSE)
+			notify_show("请求失败", "操作失败");
+		else if(notify->http_notify.status == HTTP_ERR) 
+			notify_show("系统错误", "请重试");
+	break;
 
         case WM_NOTIFY_PARENT:
                 Id = WM_GetId(pMsg->hWinSrc);
@@ -371,8 +392,15 @@ static void _cbDialog(WM_MESSAGE * pMsg)
                                         }
                                 }
                                 else if(present_bar_status == ACTION_EXP_DETAIL) {
-                                        if(routine.main_exp.sub_exp[present_list_status - 1].status == exp_waiting) 
-						expRoutineStateSwitch(present_list_status - 1, exp_lasting);
+                                        if(routine.main_exp.sub_exp[present_list_status - 1].status == exp_waiting) {
+						ui_effect.hWin = hFunctionImage1;
+						ui_effect.status = effect_start;
+						xTaskNotify(GuiTask_Handler, (uint32_t)(&ui_effect), eSetValueWithOverwrite);
+						
+						wifi_config.http_notify.event = http_student_start_exp;
+						if(errQUEUE_FULL == xQueueSend(xQueueWifi, (const void *)(&wifi_config), 50))
+							notify_show("操作无效", "请稍后");
+					}
                                 }
                                 else if(present_bar_status == ACTION_EXP_SCORE) {
                                         if(routine.flags.flagTeacherLogin == flag_reset) {

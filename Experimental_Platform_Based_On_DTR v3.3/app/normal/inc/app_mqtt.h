@@ -54,11 +54,9 @@ typedef struct {
 } mqtt_notify_t;
 
 typedef struct {
-	char moduleId;
+	int  moduleId;
 	char rank;
 } mqtt_rcv_info_t;
-
-extern mqtt_rcv_info_t mqtt_rcv_info;
 
 u8 GetDataFixedHead(unsigned char MesType, unsigned char DupFlag, unsigned char QosLevel, unsigned char Retain);
 u8 GetDataPUBLISH(unsigned char *buff, unsigned char dup, unsigned char qos, unsigned char retain, const char *topic , const char *msg); 

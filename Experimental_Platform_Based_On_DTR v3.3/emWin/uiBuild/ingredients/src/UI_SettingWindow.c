@@ -154,6 +154,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 	u8 		slideValue = 0;
 	u8 		volumeString[20];
 	u8 		p[50];
+	u8		*str;
 	char 		db_write_buf[50];
 	wifi_config_t 	*notify = NULL;
 	epoch_dev_t 	*epoch_notify = NULL;
@@ -326,6 +327,14 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 		EDIT_SetTextColor(hItem, EDIT_CI_ENABLED, 0x00868380);
 		EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
 		EDIT_SetMaxLen(hItem, 100);
+		EDIT_SetText(hItem, "100.2.254.1.1");
+		EDIT_GetText(hDevIdEdit, sys_config.dev_id, sizeof(sys_config.dev_id));
+		for(i = 0, str = sys_config.dev_id; i < 3; i++) {
+			while(*str != '.')
+				str++;
+			str++;
+		}
+		strncpy(sys_config.gateway_id, sys_config.dev_id, str - sys_config.dev_id + 1);
 		WM_SetFocus(hItem);
 		WM_HideWindow(hItem);
 
@@ -467,6 +476,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				break;
 			case WM_NOTIFICATION_RELEASED:
 				EDIT_GetText(hDevIdEdit, sys_config.dev_id, sizeof(sys_config.dev_id));
+				for(i = 0, str = sys_config.dev_id; i < 3; i++) {
+					while(*str != '.')
+						str++;
+					str++;
+				}
+				strncpy(sys_config.gateway_id, sys_config.dev_id, str - sys_config.dev_id + 1);
 				wifi_config.http_notify.event = http_submit_dev_id;
 				notify_show("节点信息上传中", "请稍候");
 				if(errQUEUE_FULL == xQueueSend(xQueueWifi, (const void *)(&wifi_config), 50))
@@ -597,7 +612,7 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 
 				break;
 			case WM_NOTIFICATION_RELEASED:
-				WM_SetUserData(hFullKeyboard, &hDevIdEdit, sizeof(WM_HWIN));\
+				WM_SetUserData(hFullKeyboard, &hDevIdEdit, sizeof(WM_HWIN));
 				WM_ShowWindow(hFullKeyboard);
 
 				break;

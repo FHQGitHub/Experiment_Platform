@@ -4,8 +4,6 @@ u8 subscribeResponse[5];
 const u8 connectResponse[] = {0x20, 0x02, 0x00, 0x00};    	 		
 const u8 pingResponse[] = {0xd0, 0x00};
 
-mqtt_rcv_info_t mqtt_rcv_info;
-
 u8 GetDataFixedHead(unsigned char MesType, unsigned char DupFlag, unsigned char QosLevel, unsigned char Retain)
 {
 	unsigned char dat = 0;
@@ -314,6 +312,8 @@ mqttStatus mqttParsePublish(unsigned char *mqttDataBuff)
 	JSON_Value *content;
 	const char *event_type = NULL;
 	
+	char i;
+	mqtt_rcv_info_t mqtt_rcv_info;
 	wifi_config_t wifi_config;
 	mqttStatus mqttRetVal;
 	
@@ -336,24 +336,46 @@ mqttStatus mqttParsePublish(unsigned char *mqttDataBuff)
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "SubExpStart")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
-			routine.main_exp.sub_exp[mqtt_rcv_info.moduleId - 1].status = exp_lasting;
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].status = exp_lasting;
+					break;
+				}
+			}
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "SubExpSubmit")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
 			mqtt_rcv_info.rank = (char)json_object_get_number(json_object(content), "rank");
-			routine.main_exp.sub_exp[mqtt_rcv_info.moduleId - 1].status = exp_submitted;
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].submitRank = mqtt_rcv_info.rank;
+					routine.main_exp.sub_exp[i].status = exp_submitted;
+					break;
+				}
+			}
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "SubExpFinish")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
-			routine.main_exp.sub_exp[mqtt_rcv_info.moduleId - 1].status = exp_finished;
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].status = exp_finished;
+					break;
+				}
+			}
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "QusetionSet")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
 			mqtt_rcv_info.rank = (char)json_object_get_number(json_object(content), "rank");
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].questionRank = mqtt_rcv_info.rank;
+					break;
+				}
+			}
 			routine.flags.flagQuestionSet = flag_set;
 			mqttRetVal = MQTT_OK;
 		}
@@ -361,13 +383,25 @@ mqttStatus mqttParsePublish(unsigned char *mqttDataBuff)
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "AnswerRanking")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
 			mqtt_rcv_info.rank = (char)json_object_get_number(json_object(content), "rank");
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].questionRank = mqtt_rcv_info.rank;
+					break;
+				}
+			}
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "MarkRanking")) {
-			mqtt_rcv_info.moduleId = (char)json_object_get_number(json_object(content), "moduleId");
+			mqtt_rcv_info.moduleId = (int)json_object_get_number(json_object(content), "moduleId");
 			mqtt_rcv_info.rank = (char)json_object_get_number(json_object(content), "rank");
+			for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+				if(mqtt_rcv_info.moduleId == routine.main_exp.sub_exp[i].moduleId) {
+					routine.main_exp.sub_exp[i].submitRank = mqtt_rcv_info.rank;
+					break;
+				}
+			}
 			mqttRetVal = MQTT_OK;
 		}
 		else if(0 == strcmp(event_type, "ExpEnd")) {

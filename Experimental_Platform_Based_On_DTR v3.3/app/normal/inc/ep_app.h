@@ -28,6 +28,7 @@ enum switch_t{
 };
 
 typedef struct {
+	char gateway_id[20];
         char dev_id[20];
         enum switch_t voice;
         enum switch_t doze;

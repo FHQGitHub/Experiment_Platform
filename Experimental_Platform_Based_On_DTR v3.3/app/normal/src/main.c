@@ -14,7 +14,7 @@
 
 //任务堆栈大小
 #define START_STK_SIZE 		128
-#define TIMER_STK_SIZE 		512
+#define TIMER_STK_SIZE 		1024
 #define TOUCH_STK_SIZE 		1024
 #define GUI_STK_SIZE 		1024
 #define WIFI_STK_SIZE 		1024
@@ -98,7 +98,7 @@ int main()
 {
 	bsp_Init();
 	local_db.init();
-	dbSettingParamInit();
+//	dbSettingParamInit();
 	expGetRoutineContents();
 	ui_init();
 	voiceInitCheck();
@@ -282,7 +282,7 @@ void gui_task(void *pvParameters)
 void wifi_task(void *pvParameters)
 {
 	u8 i, j;
-	u8 request[200];
+	u8 request[250];
 	static u8 recheck_times = 0;
 	
 	BaseType_t xResult;
@@ -294,8 +294,8 @@ void wifi_task(void *pvParameters)
 	
 	WM_MESSAGE pmsg;
 //	usr_c322_init();
-	init_wifi_queue(notify);
-	xTimerStart(xTimerWifiConnect, 100);
+//	init_wifi_queue(notify);
+//	xTimerStart(xTimerWifiConnect, 100);
 	while(1) {
 		usr_c322_wifista_mqtt_check(uart.uart_2->pRx_buffer);
 		
@@ -328,7 +328,6 @@ void wifi_task(void *pvParameters)
 				uart.uart_x->rx_status = 0;
 				memset(uart.uart_x->pRx_buffer, 0, uart.uart_x->rx_buffer_len);
 				
-				xTaskNotifyGive(WifiTask_Handler);
 				xTimerStart(xTimerWifiConnect, 100);
 				break;
 
@@ -367,7 +366,6 @@ void wifi_task(void *pvParameters)
 				pmsg.Data.p = &notify;
 				WM_SendMessage(hMainWin, &pmsg);
 				GUI_Exec();
-				xTaskNotifyGive(WifiTask_Handler);
 				xTimerStart(xTimerTcpCheck, 100);
 				break;
 			
@@ -405,7 +403,7 @@ void wifi_task(void *pvParameters)
 			}
 			switch (notify.http_notify.event) {
 			case http_submit_dev_id:
-				sprintf((char *)request, "https://%s/openApi/experiment/gateway/addNode.json?gatewayId=100.2.254.1&nodeId=%s", http_wifista_ip, sys_config.dev_id);
+				sprintf((char *)request, "https://%s/openApi/experiment/gateway/addNode.json?gatewayId=%s&nodeId=%s", http_wifista_ip, sys_config.gateway_id, sys_config.dev_id);
 				usr_c322_wifista_HTTP_request(request);
 				httpRetVal = httpSubmitDevId((char*)uart.uart_x->pRx_buffer);
 				if(HTTP_NO_DATA == httpRetVal)
@@ -464,12 +462,12 @@ void wifi_task(void *pvParameters)
 			
 			case http_student_start_exp:
 				sprintf((char *)request, "https://%s/openApi/experiment/stu/startExpe.json?moduleId=%d&userId=%s", 
-							  http_wifista_ip, present_list_status, routine.online_uid_list[0]);
+							  http_wifista_ip, routine.main_exp.sub_exp[present_list_status - 1].moduleId, routine.online_uid_list[0]);
 				if(strcmp(routine.class_id, "NULL") != 0)
-					snprintf((char *)request, sizeof(request), "&tClzId=%s", routine.class_id);
+					snprintf((char *)(request + strlen(request)), sizeof(request), "&tClzId=%s", routine.class_id);
 				else;
 				if(routine.appointed_expid != -1)
-					snprintf((char *)request, sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
+					snprintf((char *)(request + strlen(request)), sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
 				else;
 				usr_c322_wifista_HTTP_request(request);
 				notify.http_notify.status = httpStudentStartExp((char*)uart.uart_x->pRx_buffer);
@@ -477,7 +475,50 @@ void wifi_task(void *pvParameters)
 				uart.uart_x->rx_status = 0;
 				memset(uart.uart_x->pRx_buffer, 0, uart.uart_x->rx_buffer_len);
 				pmsg.hWin = hSubExpWin;
-				pmsg.MsgId = WM_BUTTON_SCORE_CB;
+				pmsg.MsgId = WM_BUTTON_BEGIN_CB;
+				pmsg.Data.p = &notify;
+				WM_SendMessage(hSubExpWin, &pmsg);
+				GUI_Exec();
+			break;
+				
+			case http_question_set:
+				sprintf((char *)request, "https://%s/openApi/experiment/stu/ask.json?moduleId=%d&userId=%s", 
+					http_wifista_ip, routine.main_exp.sub_exp[present_list_status - 1].moduleId, routine.online_uid_list[0]);
+				if(strcmp(routine.class_id, "NULL") != 0)
+					sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
+				else;
+				if(routine.appointed_expid != -1)
+					sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
+				else;
+				usr_c322_wifista_HTTP_request(request);
+				notify.http_notify.status = httpGetQuestionRank((char*)uart.uart_x->pRx_buffer);
+
+				uart.uart_x->rx_status = 0;
+				memset(uart.uart_x->pRx_buffer, 0, uart.uart_x->rx_buffer_len);
+				pmsg.hWin = hSubExpWin;
+				pmsg.MsgId = WM_BUTTON_QUESTION_CB;
+				pmsg.Data.p = &notify;
+				
+				WM_SendMessage(hSubExpWin, &pmsg);
+				GUI_Exec();
+			break;
+			
+			case http_submit_exp:
+				sprintf((char *)request, "https://%s/openApi/experiment/stu/submit.json?moduleId=%d&userId=%s", 
+					http_wifista_ip, routine.main_exp.sub_exp[present_list_status - 1].moduleId, routine.online_uid_list[0]);
+				if(strcmp(routine.class_id, "NULL") != 0)
+					sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
+				else;
+				if(routine.appointed_expid != -1)
+					sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
+				else;
+				usr_c322_wifista_HTTP_request(request);
+				notify.http_notify.status = httpGetSubmitRank((char*)uart.uart_x->pRx_buffer);
+
+				uart.uart_x->rx_status = 0;
+				memset(uart.uart_x->pRx_buffer, 0, uart.uart_x->rx_buffer_len);
+				pmsg.hWin = hSubExpWin;
+				pmsg.MsgId = WM_BUTTON_SUBMIT_CB;
 				pmsg.Data.p = &notify;
 				WM_SendMessage(hSubExpWin, &pmsg);
 				GUI_Exec();
@@ -485,12 +526,12 @@ void wifi_task(void *pvParameters)
 
 			case http_exp_score:
 				sprintf((char *)request, "https://%s/openApi/experiment/mark.json?moduleId=%d&score=%d&studentId=%s&teacherId=%s", 
-					http_wifista_ip, present_list_status, routine.main_exp.sub_exp[present_list_status - 1].subExpScore, routine.online_uid_list[0], routine.online_tid);
+					http_wifista_ip, routine.main_exp.sub_exp[present_list_status - 1].moduleId, routine.main_exp.sub_exp[present_list_status - 1].subExpScore, routine.online_uid_list[0], routine.online_tid);
 				if(strcmp(routine.class_id, "NULL") != 0)
-					snprintf((char *)request, sizeof(request), "&tClzId=%s", routine.class_id);
+					sprintf((char *)(request + strlen(request)), "&tClzId=%s", routine.class_id);
 				else;
 				if(routine.appointed_expid != -1)
-					snprintf((char *)request, sizeof(request), "&expeArrangementId=%d", routine.appointed_expid);
+					sprintf((char *)(request + strlen(request)), "&expeArrangementId=%d", routine.appointed_expid);
 				else;
 				usr_c322_wifista_HTTP_request(request);
 				notify.http_notify.status = httpExpScore((char*)uart.uart_x->pRx_buffer);

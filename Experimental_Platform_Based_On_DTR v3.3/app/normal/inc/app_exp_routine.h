@@ -43,6 +43,9 @@ typedef struct {
         enum sub_exp_sta_t status;
         char subExpName[100];
         char subExpDetail[200];
+	char questionRank;
+	char submitRank;
+	int  moduleId;
         int  subExpScore;
 }sub_exp_content_t;
 

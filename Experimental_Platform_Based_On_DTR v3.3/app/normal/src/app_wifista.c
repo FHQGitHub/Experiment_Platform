@@ -82,7 +82,7 @@ wifiStatus usr_c322_wifista_connect(u8* wifista_ssid, u8* wifista_password)
 
 wifiStatus usr_c322_wifista_HTTP_request(u8* request)
 {
-	u8 p[200];
+	u8 p[250];
 	memset(p, 0, sizeof(p));
 	sprintf((char*)p, "GET %s\r\n", request);   
 	if(usr_c322_send_cmd(p, "successFlg", 500) == WIFI_OK)

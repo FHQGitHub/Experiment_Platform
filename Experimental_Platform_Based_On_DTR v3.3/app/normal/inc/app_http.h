@@ -23,6 +23,8 @@ typedef enum {
 	http_student_login_check,
 	http_teacher_login_check,
 	http_student_start_exp,
+	http_question_set,
+	http_submit_exp,
 	http_exp_score,
 	http_logout_check,
 	http_record_update,
@@ -41,6 +43,8 @@ httpStatus httpGetAppointment(char *httpDataBuffer);
 httpStatus httpStudentLoginCheck(char *httpDataBuffer);
 httpStatus httpTeacherLoginCheck(char *httpDataBuffer);
 httpStatus httpStudentStartExp(char *httpDataBuffer);
+httpStatus httpGetQuestionRank(char *httpDataBuffer);
+httpStatus httpGetSubmitRank(char *httpDataBuffer);
 httpStatus httpExpScore(char *httpDataBuffer);
 httpStatus httpLogoutCheck(char *httpDataBuffer);
 httpStatus httpRecordUpdate(char *httpDataBuffer);

@@ -172,7 +172,9 @@ httpStatus httpGetAppointment(char *httpDataBuffer)
 				
 				exp_module_1_content = json_object_get_string(exp_module_1, "content");
 				if(exp_module_1_content!= NULL)
-					strcpy(routine.main_exp.sub_exp[0].subExpDetail, exp_module_1_name);
+					strcpy(routine.main_exp.sub_exp[0].subExpDetail, exp_module_1_content);
+				
+				routine.main_exp.sub_exp[0].moduleId = (int)json_object_get_number(exp_module_1, "moduleId");
 			}
 
 			exp_module_2 = json_array_get_object(modules, 1);
@@ -183,7 +185,9 @@ httpStatus httpGetAppointment(char *httpDataBuffer)
 				
 				exp_module_2_content = json_object_get_string(exp_module_2, "content");
 				if(exp_module_2_content!= NULL)
-					strcpy(routine.main_exp.sub_exp[1].subExpDetail, exp_module_2_name);
+					strcpy(routine.main_exp.sub_exp[1].subExpDetail, exp_module_2_content);
+				
+				routine.main_exp.sub_exp[1].moduleId = (int)json_object_get_number(exp_module_2, "moduleId");
 			}
 
 			exp_module_3 = json_array_get_object(modules, 2);
@@ -194,7 +198,9 @@ httpStatus httpGetAppointment(char *httpDataBuffer)
 				
 				exp_module_3_content = json_object_get_string(exp_module_3, "content");
 				if(exp_module_3_content!= NULL)
-					strcpy(routine.main_exp.sub_exp[2].subExpDetail, exp_module_3_name);
+					strcpy(routine.main_exp.sub_exp[2].subExpDetail, exp_module_3_content);
+				
+				routine.main_exp.sub_exp[2].moduleId = (int)json_object_get_number(exp_module_3, "moduleId");
 			}
 		}
 		exp_end_time = json_object_get_string(json_object(content), "endTime");
@@ -334,6 +340,77 @@ httpStatus httpStudentStartExp(char *httpDataBuffer)
 		}
 		else
 			httpRetVal = HTTP_NO_DATA;
+	}
+	else {
+		json_value_free(content);
+		return HTTP_ERR;
+	}
+	json_value_free(content);
+	return httpRetVal;
+}
+
+httpStatus httpGetQuestionRank(char *httpDataBuffer)
+{
+	char i;
+	JSON_Value *content;
+	const char *success_flg = NULL;
+	httpStatus httpRetVal = HTTP_OK;
+	int moduleId;
+
+	content = json_parse_string(httpDataBuffer);
+
+	if (content != NULL) {
+		success_flg = json_object_get_string(json_object(content), "successFlg");
+		if(NULL != success_flg) {
+			if(strcmp(success_flg, "true"))
+				httpRetVal = HTTP_FALSE;
+			else;
+		}
+		else
+			httpRetVal = HTTP_NO_DATA;
+		moduleId = (int)json_object_get_number(json_object(content), "moduleId");
+		for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+			if(moduleId == routine.main_exp.sub_exp[i].moduleId) {
+				routine.main_exp.sub_exp[i].questionRank = (char)json_object_get_number(json_object(content), "ranking");
+				break;
+			}
+		}
+	}
+	else {
+		json_value_free(content);
+		return HTTP_ERR;
+	}
+	json_value_free(content);
+	return httpRetVal;
+}
+
+httpStatus httpGetSubmitRank(char *httpDataBuffer)
+{
+	JSON_Value *content;
+	const char *success_flg = NULL;
+	
+	httpStatus httpRetVal = HTTP_OK;
+	int moduleId;
+	char i;
+
+	content = json_parse_string(httpDataBuffer);
+
+	if (content != NULL) {
+		success_flg = json_object_get_string(json_object(content), "successFlg");
+		if(NULL != success_flg) {
+			if(strcmp(success_flg, "true"))
+				httpRetVal = HTTP_FALSE;
+			else;
+		}
+		else
+			httpRetVal = HTTP_NO_DATA;
+		moduleId = (int)json_object_get_number(json_object(content), "moduleId");
+		for(i = 0; i < routine.main_exp.subExpNumber; i++) {
+			if(moduleId == routine.main_exp.sub_exp[i].moduleId) {
+				routine.main_exp.sub_exp[i].submitRank = (char)json_object_get_number(json_object(content), "ranking");
+				break;
+			}
+		}
 	}
 	else {
 		json_value_free(content);
